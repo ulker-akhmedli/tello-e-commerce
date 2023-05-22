@@ -1,0 +1,35 @@
+@import "../../../scss/variables.scss";
+.banner {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #f2e4dd, #e9e9e9);
+
+  gap: 20px;
+  .banner-title {
+    display: flex;
+    flex-direction: column;
+    h3 {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 32px;
+      color: #303030;
+    }
+    span {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: #303030;
+    }
+    a {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: $clr-link;
+    }
+  }
+  .xiaomi {
+    width: 593px;
+    height: 444px;
+  }
+}
