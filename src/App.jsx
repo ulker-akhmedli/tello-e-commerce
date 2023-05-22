@@ -8,7 +8,6 @@ import Home from "./pages/Home/Home";
 const App = () => {
   return (
     <div className="container">
-      <h1></h1>
       <div className="main">
         <Header />
         <Routes>
