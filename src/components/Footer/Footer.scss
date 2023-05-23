@@ -100,3 +100,53 @@ footer {
     }
   }
 }
+@media (max-width: 576px) {
+  footer {
+    .columns {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+     
+      .column {
+        gap: 32px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 0;
+
+        ul {
+          gap: 8px;
+          li {
+            a {
+            }
+          }
+          &.last {
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            li {
+              align-items: center;
+
+              a {
+                align-items: center;
+                text-align: left;
+                width: 300px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .copyright {
+      padding: 24px 20px;
+      position: relative;
+
+      .right {
+        position: absolute;
+        top: -45%;
+        right: 11%;
+      }
+    }
+  }
+}

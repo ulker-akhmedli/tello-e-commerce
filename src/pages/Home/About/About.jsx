@@ -1,8 +1,7 @@
 import React from "react";
 import "./About.scss";
 
-
-const About = ({image,title}) => {
+const About = ({ image, title }) => {
   return (
     <div className="about">
       <div className="details">
@@ -10,16 +9,6 @@ const About = ({image,title}) => {
         <h4>{title}</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
       </div>
-      {/* <div className="details">
-        <img src={Cardpos} alt="card" />
-        <h4>Kredit</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
-      </div>
-      <div className="details">
-        <img src={Guarantee} alt="box" />
-        <h4>Zəmanət</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
-      </div> */}
     </div>
   );
 };

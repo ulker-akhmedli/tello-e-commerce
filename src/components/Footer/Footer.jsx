@@ -62,8 +62,8 @@ const Footer = () => {
           <h3 className="title">Əlaqə</h3>
           <ul className="last">
             <li>
-              <a href="/">
-                <img src={Location} alt="" />
+              <a href="/" >
+                <img src={Location} alt="location" />
                 M. K. Ataturk avenue 89, Baku, Azerbaijan</a>
             </li>
             <li>

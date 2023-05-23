@@ -10,7 +10,6 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 75px;
-
       cursor: pointer;
       .slider-info {
         width: 450px;
@@ -55,5 +54,37 @@
         }
       }
     }
+  }
+}
+@media (max-width: 576px) {
+  .all {
+    .sliders {
+      .slide {
+        display: flex;
+        padding: 32px 68px 48px 68px;
+
+        flex-direction: column;
+
+        .slider-info {
+          display: flex;
+          flex-direction: column;
+          h4 {
+            width: 222px;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 32px;
+            align-items: center;
+          }
+        }
+        .slider-image {
+          width: 231px;
+          height: 216px;
+          order: -1;
+          img {
+          }
+        }
+      }
+    }
+    
   }
 }

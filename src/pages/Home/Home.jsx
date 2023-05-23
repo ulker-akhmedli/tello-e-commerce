@@ -13,20 +13,22 @@ import Guarantee from "../../assets/guarantee.png";
 
 const Home = () => {
   return (
-    <div className="homePage">
+    <div className="home">
       <Carousel />
-      <Caption title={"Ən çox satılan məhsullar"} />
-      <Product />
-      <Caption title={"Yeni gələn məhsullar"} />
-      <Product />
-      <Advert />
-      <Caption title={"Yeni gələn aksessuarlar"} />
-      <Product />
-      <Banner />
-      <div className="about-cont">
-        <About image={Box} title={"Çatdırılma"} />
-        <About image={Cardpos} title={"Kredit"} />
-        <About image={Guarantee} title={"Zəmanət"} />
+      <div className="homePage">
+        <Caption title={"Ən çox satılan məhsullar"} />
+        <Product />
+        <Caption title={"Yeni gələn məhsullar"} />
+        <Product />
+        <Advert />
+        <Caption title={"Yeni gələn aksessuarlar"} />
+        <Product />
+        <Banner />
+        <div className="about-cont">
+          <About image={Box} title={"Çatdırılma"} />
+          <About image={Cardpos} title={"Kredit"} />
+          <About image={Guarantee} title={"Zəmanət"} />
+        </div>
       </div>
       <Brand />
     </div>

@@ -4,5 +4,14 @@
     // flex-wrap: wrap;
     justify-content: center;
     gap: 24px;
+    overflow: scroll;
+  }
+}
+@media (max-width: 576px) {
+  .product {
+    .cards {
+      gap: 16px;
+      justify-content: flex-start;
+    }
   }
 }

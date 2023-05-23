@@ -1,7 +1,7 @@
 import React from "react";
 import "./Advert.scss";
 import Iphone11 from "../../assets/iphone11.jpg";
-import Airtag from "../../assets/airtag.jpeg"
+import Airtag from "../../assets/airtag.jpeg";
 const Advert = () => {
   return (
     <div className="adverts">

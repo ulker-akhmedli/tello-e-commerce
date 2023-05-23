@@ -37,3 +37,9 @@
     height: 80px;
   }
 }
+@media (max-width: 576px) {
+  .brands {
+    display: none;
+  }
+
+}

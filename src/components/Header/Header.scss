@@ -18,7 +18,7 @@ header {
     .search {
       display: flex;
       gap: 16px;
-      
+
       button {
         background-color: #edf1f7;
         border-radius: 4px;
@@ -42,14 +42,13 @@ header {
       }
     }
   }
-  
 
   .headerline {
     display: flex;
     justify-content: space-between;
     padding: 24px 0;
     align-items: center;
-   
+
     .logo {
       display: flex;
       gap: 15px;
@@ -103,6 +102,45 @@ header {
         span {
           padding: 2px 6px;
           color: #fff;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 576px) {
+  header {
+
+    .inputDropdown {
+      .search {
+        button {
+        }
+      }
+
+      .last-search {
+        span {
+        }
+      }
+    }
+
+    .headerline {
+      .logo {
+        h2 {
+        }
+        form {
+          input {
+            &::placeholder {
+            }
+          }
+          img {
+          }
+        }
+        .shopping {
+          img {
+          }
+          .circle {
+            span {
+            }
+          }
         }
       }
     }

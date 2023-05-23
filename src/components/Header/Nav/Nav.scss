@@ -1,6 +1,7 @@
 @import "../../../scss/variables.scss";
 nav {
   padding-bottom: 12px;
+  position: relative;
   .navbar {
     display: flex;
     gap: 56px;

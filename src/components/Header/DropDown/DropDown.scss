@@ -1,0 +1,21 @@
+@import "../../../scss/variables.scss";
+.dropDown {
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+  padding-top: 20px;
+  border-top: 1px solid $clr-main;
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    li {
+      a {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: $clr-gray2;
+      }
+    }
+  }
+}

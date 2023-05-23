@@ -48,3 +48,20 @@
     }
   }
 }
+@media (max-width: 576px) {
+  .adverts {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: baseline;
+    margin: 52px 0 48px 0;
+    .advert {
+      width: 100%;
+      padding: 20px;
+
+      margin: 0;
+      &.sec {
+      }
+    }
+  }
+}

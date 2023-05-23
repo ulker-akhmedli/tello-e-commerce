@@ -1,13 +1,22 @@
-import React from "react";
+import React ,{useState}from "react";
 import "./Nav.scss";
 import { NavLink } from "react-router-dom";
+import DropDown from "../DropDown/DropDown";
+
 
 const Nav = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const handleMouseOver = () => {
+    setIsDropdownOpen(prev => !prev);
+  };
   return (
     <nav>
       <ul className="navbar">
         <li>
-          <NavLink to="/">Yeni</NavLink>
+          <NavLink onMouseEnter={handleMouseOver} to="/">
+            Yeni
+          </NavLink>
+          {isDropdownOpen && <DropDown />}
         </li>
         <li>
           <NavLink to="/">Apple</NavLink>

@@ -33,3 +33,16 @@
     }
   }
 }
+@media (max-width: 576px) {
+  .caption {
+    position: relative;
+    margin-top: 50px;
+    
+    .more {
+      position: absolute;
+      bottom: -450%;
+      right: 39%;
+     
+    }
+  }
+}
