@@ -9,9 +9,9 @@ import Nav from "./Nav/Nav";
 import { useState } from "react";
 
 const Header = () => {
-  const [inputValue, setInputValue] = useState(" ");
+  const [inputValue, setInputValue] = useState("");
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [lastSearch, setLastSearch] = useState(" ");
+  const [lastSearch, setLastSearch] = useState("");
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -42,12 +42,12 @@ const Header = () => {
           <img src={lupa} alt="search" />
           <input
             type="text"
+            placeholder="Axtarış..."
             value={inputValue}
             onChange={handleInputChange}
             onClick={handleInputClick}
-            placeholder="Axtarış..."
           />
-           {dropdownVisible && (
+          {dropdownVisible && (
             <div className="inputDropdown">
               <div className="last-search">
                 Son axtarışlar
@@ -67,7 +67,7 @@ const Header = () => {
             </div>
           )}
         </form>
-       
+
         <div className="shopping">
           <img src={login} alt="" />
           <img src={like} alt="" />

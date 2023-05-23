@@ -6,21 +6,11 @@ import Caption from "../../../components/Caption/Caption";
 const Product = () => {
   return (
     <div className="product">
-      <Caption title={"Ən çox satılan məhsullar"} />
       <div className="cards">
-        <div className="best">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </div>
-        <Caption title={"Yeni gələn məhsullar"} />
-        <div className="best">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </div>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </div>
     </div>
   );

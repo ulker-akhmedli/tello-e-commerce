@@ -1,9 +1,8 @@
 .adverts {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   gap: 32px;
-  width: 95%;
-  margin: 0 auto;
+  align-items: center;
   .advert {
     border-radius: 8px;
     display: flex;
@@ -12,7 +11,7 @@
     padding: 16px 32px;
     justify-content: space-between;
     margin: 65px 0;
-    &.sec{
+    &.sec {
       // background-color:rgb(183, 178, 178);
     }
 

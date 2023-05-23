@@ -7,78 +7,28 @@ const Nav = () => {
     <nav>
       <ul className="navbar">
         <li>
-          <NavLink
-            to="/"
-            style={({ isActive }) =>
-              isActive ? { color: "#00D68F" } : undefined
-            }
-          >
-            Yeni
-          </NavLink>
+          <NavLink to="/">Yeni</NavLink>
         </li>
         <li>
-          <NavLink
-            to="/"
-            style={({ isActive }) =>
-              isActive ? { color: "#00D68F" } : undefined
-            }
-          >
-            Apple
-          </NavLink>
+          <NavLink to="/">Apple</NavLink>
         </li>
         <li>
-          <NavLink
-            style={({ isActive }) =>
-              isActive ? { color: "#00D68F" } : undefined
-            }
-          >
-            Samsung
-          </NavLink>
+          <NavLink>Samsung</NavLink>
         </li>
         <li>
-          <NavLink
-            style={({ isActive }) =>
-              isActive ? { color: "#00D68F" } : undefined
-            }
-          >
-            Xiaomi
-          </NavLink>
+          <NavLink>Xiaomi</NavLink>
         </li>
         <li>
-          <NavLink
-            style={({ isActive }) =>
-              isActive ? { color: "#00D68F" } : undefined
-            }
-          >
-            Redmi
-          </NavLink>
+          <NavLink>Redmi</NavLink>
         </li>
         <li>
-          <NavLink
-            style={({ isActive }) =>
-              isActive ? { color: "#00D68F" } : undefined
-            }
-          >
-            Bütün Brendlər
-          </NavLink>
+          <NavLink>Bütün Brendlər</NavLink>
         </li>
         <li>
-          <NavLink
-            style={({ isActive }) =>
-              isActive ? { color: "#00D68F" } : undefined
-            }
-          >
-            Aksessuarlar
-          </NavLink>
+          <NavLink>Aksessuarlar</NavLink>
         </li>
         <li>
-          <NavLink
-            style={({ isActive }) =>
-              isActive ? { color: "#00D68F" } : undefined
-            }
-          >
-            Endirimlər
-          </NavLink>
+          <NavLink>Endirimlər</NavLink>
         </li>
       </ul>
     </nav>

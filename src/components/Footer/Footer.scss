@@ -57,12 +57,12 @@ footer {
             cursor: pointer;
             &:hover {
               color: $clr-main;
-          }
+            }
           }
         }
-        &.last{
-          li{
-            a{
+        &.last {
+          li {
+            a {
               display: flex;
               align-items: center;
               gap: 20px;
@@ -76,7 +76,7 @@ footer {
     color: #fff;
     display: flex;
     padding: 24px 75px;
-    border-top: 1px solid #ffff;
+    border-top: 1px solid gray;
 
     justify-content: space-between;
     span {

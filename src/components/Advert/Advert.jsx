@@ -22,10 +22,10 @@ const Advert = () => {
       </div>
       <div className="advert sec">
         <div className="advert-info">
+          <h4>Airtag</h4>
           <h4>Əşyalarınızı tapmağın ən asan yolu</h4>
           <div className="price">
             <span>79 AZN-dən</span>
-
           </div>
           <button>İndi alın</button>
         </div>

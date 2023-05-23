@@ -1,10 +1,8 @@
 .product {
   .cards {
-    .best {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 24px;
-    }
+    display: flex;
+    // flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
   }
 }

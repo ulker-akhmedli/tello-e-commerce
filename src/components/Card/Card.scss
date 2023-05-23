@@ -3,12 +3,13 @@
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  box-shadow: 0px 4px 8px rgba(164, 164, 164, 0.08);
+  // box-shadow: 0px 4px 8px rgba(164, 164, 164, 0.08);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 4px;
   padding: 6px 0;
   cursor: pointer;
   .productImg {
-    padding: 10px 49px ;
+    padding: 10px 49px;
   }
   .product-info {
     display: flex;
