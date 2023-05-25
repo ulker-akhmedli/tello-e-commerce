@@ -36,7 +36,6 @@ const Header = () => {
     <header>
       <div className="headerline">
         <img className="hamburger" src={HamburgerMenu} alt="HamburgerMenu" />
-
         <div className="logo">
           <img src={logo} alt="tello" />
           <h2>Tello</h2>
