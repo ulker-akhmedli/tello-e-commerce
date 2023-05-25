@@ -7,6 +7,7 @@ import like from "../../assets/like.svg";
 import basket from "../../assets/basket.svg";
 import Nav from "./Nav/Nav";
 import { useState } from "react";
+import HamburgerMenu from "../../assets/menu.svg";
 
 const Header = () => {
   const [inputValue, setInputValue] = useState("");
@@ -34,6 +35,8 @@ const Header = () => {
   return (
     <header>
       <div className="headerline">
+        <img className="hamburger" src={HamburgerMenu} alt="HamburgerMenu" />
+
         <div className="logo">
           <img src={logo} alt="tello" />
           <h2>Tello</h2>
@@ -47,7 +50,7 @@ const Header = () => {
             onChange={handleInputChange}
             onClick={handleInputClick}
           />
-          {dropdownVisible && (
+          {/* {dropdownVisible && (
             <div className="inputDropdown">
               <div className="last-search">
                 Son axtarışlar
@@ -65,7 +68,7 @@ const Header = () => {
                 </button>
               </div>
             </div>
-          )}
+          )} */}
         </form>
 
         <div className="shopping">

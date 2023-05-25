@@ -54,13 +54,30 @@
     flex-direction: column;
     gap: 24px;
     align-items: baseline;
-    margin: 52px 0 48px 0;
+    margin: 70px 0 48px 0;
     .advert {
       width: 100%;
       padding: 20px;
 
       margin: 0;
       &.sec {
+      }
+      .advert-info {
+        h4 {
+          font-size: 20px;
+        }
+        button {
+          padding: 3px 15px;
+        }
+      }
+      .price {
+        span {
+          font-size: 16px;
+        }
+
+        .second {
+          font-size: 16px;
+        }
       }
     }
   }
