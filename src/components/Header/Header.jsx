@@ -12,7 +12,7 @@ import HamburgerMenu from "../../assets/menu.svg";
 const Header = () => {
   const [inputValue, setInputValue] = useState("");
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [lastSearch, setLastSearch] = useState("");
+  // const [lastSearch, setLastSearch] = useState("");
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -22,15 +22,15 @@ const Header = () => {
     setDropdownVisible(true);
   };
 
-  const handleDropdownItemClick = (item) => {
-    setInputValue(item);
-    setLastSearch(item);
-    setDropdownVisible(false);
-  };
-  const handleClearClick = () => {
-    setInputValue("");
-    setLastSearch("");
-  };
+  // const handleDropdownItemClick = (item) => {
+  //   setInputValue(item);
+  //   setLastSearch(item);
+  //   setDropdownVisible(false);
+  // };
+  // const handleClearClick = () => {
+  //   setInputValue("");
+  //   setLastSearch("");
+  // };
 
   return (
     <header>

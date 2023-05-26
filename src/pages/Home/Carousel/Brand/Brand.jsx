@@ -18,6 +18,8 @@ const Brand = () => {
     slidesToShow: 6,
     slidesToScroll: 5,
     arrows: false,
+    autoplay: true,
+    autoplaySpeed: 2000,
   };
   return (
     <div className="brands">
