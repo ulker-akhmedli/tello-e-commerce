@@ -1,5 +1,5 @@
 import React from "react";
-import "./Dropdown.scss";
+import "./DropDown.scss";
 
 import { Link } from "react-router-dom";
 const DropDown = () => {
