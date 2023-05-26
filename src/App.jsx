@@ -6,7 +6,7 @@ import Home from "./pages/Home/Home";
 
 const App = () => {
   return (
-    <div className="container">
+    <div >
       <Header />
       <div className="main">
         <Routes>

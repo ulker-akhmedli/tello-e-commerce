@@ -10,16 +10,14 @@ import { Link } from "react-router-dom";
 import Location from "../../assets/location.svg";
 import Mail from "../../assets/mail.svg";
 import Call from "../../assets/call.svg";
+import Logo from "../Logo/Logo";
 
 const Footer = () => {
   return (
     <footer>
       <div className="columns">
         <div className="footer-logo">
-          <div className="logo">
-            <img src={logo} alt="tello" />
-            <h2>Tello</h2>
-          </div>
+          <Logo />
           <div className="social-medias">
             <img src={Instagram} alt="insta" />
             <img src={Facebook} alt="facebook" />
@@ -62,21 +60,22 @@ const Footer = () => {
           <h3 className="title">Əlaqə</h3>
           <ul className="last">
             <li>
-              <a href="/" >
+              <a href="/">
                 <img src={Location} alt="location" />
-                M. K. Ataturk avenue 89, Baku, Azerbaijan</a>
+                M. K. Ataturk avenue 89, Baku, Azerbaijan
+              </a>
             </li>
             <li>
               <a href="/">
-              <img src={Mail} alt="" />
-
-                example@gmail.com</a>
+                <img src={Mail} alt="" />
+                example@gmail.com
+              </a>
             </li>
             <li>
               <a href="/">
-              <img src={Call} alt="" />
-
-                *2108</a>
+                <img src={Call} alt="" />
+                *2108
+              </a>
             </li>
           </ul>
         </div>

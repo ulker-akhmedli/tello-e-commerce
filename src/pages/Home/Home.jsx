@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div className="home">
       <Carousel />
-      <div className="homePage">
+      <div className="homePage container">
         <Caption title={"Ən çox satılan məhsullar"} />
         <Product />
         <Caption title={"Yeni gələn məhsullar"} />

@@ -1,6 +1,5 @@
 import React from "react";
 import "./Header.scss";
-import logo from "../../assets/logo.svg";
 import lupa from "../../assets/search.svg";
 import login from "../../assets/login.svg";
 import like from "../../assets/like.svg";
@@ -8,19 +7,21 @@ import basket from "../../assets/basket.svg";
 import Nav from "./Nav/Nav";
 import { useState } from "react";
 import HamburgerMenu from "../../assets/menu.svg";
+import Logo from "../Logo/Logo";
+import MobileNav from "./MobileNav/MobileNav";
 
 const Header = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  // const [lastSearch, setLastSearch] = useState("");
+  // const [inputValue, setInputValue] = useState("");
+  // const [dropdownVisible, setDropdownVisible] = useState(false);
+  // // const [lastSearch, setLastSearch] = useState("");
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
+  // const handleInputChange = (e) => {
+  //   setInputValue(e.target.value);
+  // };
 
-  const handleInputClick = () => {
-    setDropdownVisible(true);
-  };
+  // const handleInputClick = () => {
+  //   setDropdownVisible(true);
+  // };
 
   // const handleDropdownItemClick = (item) => {
   //   setInputValue(item);
@@ -32,22 +33,33 @@ const Header = () => {
   //   setLastSearch("");
   // };
 
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
+
   return (
     <header>
       <div className="headerline">
-        <img className="hamburger" src={HamburgerMenu} alt="HamburgerMenu" />
-        <div className="logo">
-          <img src={logo} alt="tello" />
-          <h2>Tello</h2>
-        </div>
+        <img
+          className="hamburger"
+          src={HamburgerMenu}
+          alt="HamburgerMenu"
+          onClick={toggleDropdown}
+        />
+        {isDropdownOpen && <MobileNav/> }
+
+
+        <Logo />
         <form>
           <img src={lupa} alt="search" />
           <input
             type="text"
             placeholder="Axtarış..."
-            value={inputValue}
-            onChange={handleInputChange}
-            onClick={handleInputClick}
+            // value={inputValue}
+            // onChange={handleInputChange}
+            // onClick={handleInputClick}
           />
           {/* {dropdownVisible && (
             <div className="inputDropdown">

@@ -1,0 +1,44 @@
+@import "../../../scss/variables.scss";
+.mobileNav {
+  display: none;
+}
+@media (max-width: 576px) {
+  .mobileNav {
+    display: block;
+    width: 100%;
+    .mobile-title {
+      display: flex;
+      gap: 16px;
+      border-bottom: 1px solid rgba(48, 48, 48, 0.16);
+    }
+    ul {
+      display: flex;
+      gap: 21px;
+      flex-direction: column;
+      padding: 16px 0 96px 16px;
+      li {
+        a {
+        }
+      }
+    }
+    .login-buttons {
+      background-color: #faf9f9;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      .button {
+        background: #ffffff;
+        border: 1px solid $clr-main;
+        border-radius: 8px;
+        color: $clr-main;
+        padding: 16px 50px;
+      }
+      .second {
+        color: #ffffff;
+        background-color: $clr-main;
+      }
+    }
+  }
+}

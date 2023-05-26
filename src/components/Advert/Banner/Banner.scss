@@ -39,6 +39,8 @@
     .bannerImg {
       display: flex;
       justify-content: flex-end;
+      img {
+      }
     }
     .xiaomi {
       width: 100%;
@@ -67,6 +69,7 @@
     flex-direction: column;
     .banner {
       .banner-title {
+        padding: 33px;
         h3 {
         }
 
@@ -74,17 +77,24 @@
         }
       }
       .bannerImg {
+        img {
+        }
       }
       .xiaomi {
       }
       &.first {
-        width: 80%;
+        width: 100%;
       }
     }
     .other {
+      width: 100%;
       .small {
-        width: 80%;
-
+        width: 100%;
+      }
+      .bannerImg {
+        img {
+          width: 220px;
+        }
       }
     }
   }

@@ -6,9 +6,12 @@ body {
   font-family: Euclid Circular A, sans-serif;
 }
 .container {
-  .main {
-    max-width: 1240px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+@media (max-width: 576px) {
+  .container {
+    width: 90%;
     margin: 0 auto;
-    width: 95%;
   }
 }

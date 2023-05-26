@@ -18,18 +18,7 @@ header {
       display: none;
       cursor: pointer;
     }
-    .logo {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      h2 {
-        //   color: $clr-main;
-        color: rgba(45, 208, 110, 1);
-        font-weight: 500;
-        font-size: 34px;
-        line-height: 40px;
-      }
-    }
+    
     form {
       position: relative;
 
