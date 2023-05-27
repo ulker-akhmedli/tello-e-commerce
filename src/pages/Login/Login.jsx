@@ -1,5 +1,5 @@
 import React from "react";
-import WithSocial from "./WithSocial/WithSocial.JSX";
+import WithSocial from "./WithSocial/WithSocial.jsx";
 import "./Login.scss";
 import LoginImage from "../../assets/login.png";
 import { Link } from "react-router-dom";
