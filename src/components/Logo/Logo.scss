@@ -1,13 +1,17 @@
 @import "../../scss/variables.scss";
 .logo {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  h2 {
+  a {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    cursor: pointer;
+
+    h2 {
       color: $clr-main;
-    // color: rgba(45, 208, 110, 1);
-    font-weight: 500;
-    font-size: 34px;
-    line-height: 40px;
+
+      font-weight: 500;
+      font-size: 34px;
+      line-height: 40px;
+    }
   }
 }

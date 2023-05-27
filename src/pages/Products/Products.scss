@@ -1,0 +1,18 @@
+.products {
+  display: flex;
+  justify-content: space-between;
+    gap: 45px;
+  .left {
+    width: 23%;
+  }
+
+  .product-list {
+    margin-top: 100px;
+    width: 77%;
+    .card-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  }
+}

@@ -19,7 +19,7 @@ const Nav = () => {
           {isDropdownOpen && <DropDown />}
         </li>
         <li>
-          <NavLink to="/">Apple</NavLink>
+          <NavLink to="/products">Apple</NavLink>
         </li>
         <li>
           <NavLink>Samsung</NavLink>

@@ -4,11 +4,14 @@ import Close from "../../../assets/close.svg";
 import { Link } from "react-router-dom";
 import Logo from "../../Logo/Logo";
 
-const MobileNav = () => {
+const MobileNav = ({ setMobileNavbar, mobileNavbar }) => {
+  const closeNavbar = () => {
+    setMobileNavbar(false);
+  };
   return (
-    <div className="mobileNav">
+    <div className={mobileNavbar ? `mobileNav opened` : "mobileNav"}>
       <div className="mobile-title">
-        <img src={Close} alt="close" />
+        <img onClick={closeNavbar} src={Close} alt="close" />
         <Logo />
       </div>
       <ul>

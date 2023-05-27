@@ -10,8 +10,12 @@ import Banner from "../../components/Advert/Banner/Banner";
 import Box from "../../assets/box.png";
 import Cardpos from "../../assets/card-pos.png";
 import Guarantee from "../../assets/guarantee.png";
+// import { commerce } from "../../commerce";
 
 const Home = () => {
+  // async function fetchProduct() {
+  //   commerce.products.list().then((product) => console.log(product));
+  // }
   return (
     <div className="home">
       <Carousel />
@@ -31,19 +35,11 @@ const Home = () => {
         </div>
       </div>
       <Brand />
+      {/* <button onClick={fetchProduct}>get product </button> */}
     </div>
   );
 };
 
 export default Home;
 
-// name={"Iphone 11"} about={"Rəngli.Güclü"} forUs={"Əsl sizə lazım olan"} price={"1 519 AZN"} fromPrice={"Faizsiz Taksitlə 127 AZN-dən"}
-// {name,about,forUs,price,fromPrice}
 
-//banner title={"Telefon"} width={50} nameProducts={Xiaomi}
-{
-  /* <div className="banners">
-<Banner title={"Smart Saat"} width={100} nameProducts={SmartWatch} />
-<Banner title={"Aksesuar"} width={100} nameProducts={Aksesuar} />
-</div> */
-}

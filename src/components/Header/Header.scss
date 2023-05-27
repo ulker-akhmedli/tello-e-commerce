@@ -18,7 +18,7 @@ header {
       display: none;
       cursor: pointer;
     }
-    
+
     form {
       position: relative;
 
@@ -28,6 +28,7 @@ header {
         border-radius: 8px;
         position: absolute;
         padding: 25px;
+        z-index: 100;
         display: flex;
         gap: 18px;
         flex-direction: column;
@@ -124,7 +125,7 @@ header {
       }
       form {
         order: 1;
-        padding: 16px;
+        margin: 16px;
         .inputDropdown {
           .search {
             button {

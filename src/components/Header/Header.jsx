@@ -11,34 +11,32 @@ import Logo from "../Logo/Logo";
 import MobileNav from "./MobileNav/MobileNav";
 
 const Header = () => {
-  // const [inputValue, setInputValue] = useState("");
-  // const [dropdownVisible, setDropdownVisible] = useState(false);
-  // // const [lastSearch, setLastSearch] = useState("");
+  const [inputValue, setInputValue] = useState("");
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [lastSearch, setLastSearch] = useState("");
 
-  // const handleInputChange = (e) => {
-  //   setInputValue(e.target.value);
-  // };
-
-  // const handleInputClick = () => {
-  //   setDropdownVisible(true);
-  // };
-
-  // const handleDropdownItemClick = (item) => {
-  //   setInputValue(item);
-  //   setLastSearch(item);
-  //   setDropdownVisible(false);
-  // };
-  // const handleClearClick = () => {
-  //   setInputValue("");
-  //   setLastSearch("");
-  // };
-
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen);
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
   };
 
+  const handleInputClick = () => {
+    setDropdownVisible(true);
+  };
+
+  const handleDropdownItemClick = (item) => {
+    setInputValue(item);
+    setLastSearch(item);
+    setDropdownVisible(false);
+  };
+  const handleClearClick = () => {
+    setInputValue("");
+    setLastSearch("");
+  };
+
+  const [mobileNavbar, setMobileNavbar] = useState(false);
+  const setDropdownOpen = () => {
+    setMobileNavbar(true);
+  };
   return (
     <header>
       <div className="headerline">
@@ -46,22 +44,19 @@ const Header = () => {
           className="hamburger"
           src={HamburgerMenu}
           alt="HamburgerMenu"
-          onClick={toggleDropdown}
+          onClick={setDropdownOpen}
         />
-        {isDropdownOpen && <MobileNav/> }
-
-
         <Logo />
         <form>
           <img src={lupa} alt="search" />
           <input
             type="text"
             placeholder="Axtarış..."
-            // value={inputValue}
-            // onChange={handleInputChange}
-            // onClick={handleInputClick}
+            value={inputValue}
+            onChange={handleInputChange}
+            onClick={handleInputClick}
           />
-          {/* {dropdownVisible && (
+          {dropdownVisible && (
             <div className="inputDropdown">
               <div className="last-search">
                 Son axtarışlar
@@ -79,7 +74,7 @@ const Header = () => {
                 </button>
               </div>
             </div>
-          )} */}
+          )}
         </form>
 
         <div className="shopping">
@@ -92,6 +87,10 @@ const Header = () => {
         </div>
       </div>
       <Nav />
+      <MobileNav
+        setMobileNavbar={setMobileNavbar}
+        mobileNavbar={mobileNavbar}
+      />
     </header>
   );
 };
