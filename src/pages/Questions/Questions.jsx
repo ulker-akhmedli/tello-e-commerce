@@ -4,6 +4,7 @@ import Navigation from "../../components/Navigation/Navigation";
 import Question from "./Question/Question";
 
 const Questions = () => {
+  window.scrollTo(0, 0);
   return (
     <div className="questions container">
       <Navigation />
@@ -49,7 +50,7 @@ const Questions = () => {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae sed at nunc viverra fermentum diam aliquam. Placerat urna, varius vestibulum nulla. Mauris ullamcorper tincidunt amet arcu rutrum amet, amet. Nisi, id magnis tellus ut. ANkaskakjsljasljalmxlssajojsqlmawkjdixuakxkans"
           }
         />
-         <Question
+        <Question
           question={
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque amet egestas interdum dui nibh ut fermentum posuere. Mi ultrices phasellus massa lectus tellus sem? "
           }
@@ -57,7 +58,7 @@ const Questions = () => {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae sed at nunc viverra fermentum diam aliquam. Placerat urna, varius vestibulum nulla. Mauris ullamcorper tincidunt amet arcu rutrum amet, amet. Nisi, id magnis tellus ut. ANkaskakjsljasljalmxlssajojsqlmawkjdixuakxkans"
           }
         />
-         <Question
+        <Question
           question={
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque amet egestas interdum dui nibh ut fermentum posuere. Mi ultrices phasellus massa lectus tellus sem? "
           }
@@ -65,7 +66,7 @@ const Questions = () => {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae sed at nunc viverra fermentum diam aliquam. Placerat urna, varius vestibulum nulla. Mauris ullamcorper tincidunt amet arcu rutrum amet, amet. Nisi, id magnis tellus ut. ANkaskakjsljasljalmxlssajojsqlmawkjdixuakxkans"
           }
         />
-         <Question
+        <Question
           question={
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque amet egestas interdum dui nibh ut fermentum posuere. Mi ultrices phasellus massa lectus tellus sem? "
           }

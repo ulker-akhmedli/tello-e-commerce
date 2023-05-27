@@ -9,6 +9,7 @@ import { useState } from "react";
 import HamburgerMenu from "../../assets/menu.svg";
 import Logo from "../Logo/Logo";
 import MobileNav from "./MobileNav/MobileNav";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [inputValue, setInputValue] = useState("");
@@ -78,9 +79,13 @@ const Header = () => {
         </form>
 
         <div className="shopping">
-          <img src={login} alt="" />
-          <img src={like} alt="" />
-          <img src={basket} alt="" />
+          <Link to={"/login"}>
+            <img src={login} alt="login" />
+          </Link>
+          <img src={like} alt="heart" />
+          <Link>
+            <img src={basket} alt="basket" />
+          </Link>
           <div className="circle">
             <span>0</span>
           </div>
