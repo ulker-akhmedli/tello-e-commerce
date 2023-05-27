@@ -19,7 +19,7 @@ const MobileNav = ({ setMobileNavbar, mobileNavbar }) => {
           <Link>Yeni</Link>
         </li>
         <li>
-          <Link>Apple</Link>
+          <Link to={"/products"}>Apple</Link>
         </li>
         <li>
           <Link>Samsung</Link>

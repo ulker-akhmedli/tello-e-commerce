@@ -1,9 +1,12 @@
 .products {
   display: flex;
   justify-content: space-between;
-    gap: 45px;
+  gap: 45px;
   .left {
     width: 23%;
+  }
+  .mobile{
+    display: none;
   }
 
   .product-list {
@@ -13,6 +16,16 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+    }
+  }
+}
+@media (max-width: 576px) {
+  .products {
+    .left {
+      display: none;
+    }
+    .mobile{
+        display: block;
     }
   }
 }

@@ -1,7 +1,6 @@
 @import "../../../scss/variables.scss";
 .filter {
   padding: 42px 0 10px 20px;
-
   .filter-title {
     display: flex;
     justify-content: space-between;
@@ -50,6 +49,27 @@
         line-height: 20px;
 
         color: $clr-gray2;
+      }
+    }
+  }
+}
+@media (max-width: 576px) {
+  .filter {
+    // display: none;
+    .filter-title {
+      h3 {
+      }
+      img {
+      }
+    }
+    .options {
+      li {
+        input {
+          &:before {
+          }
+        }
+        label {
+        }
       }
     }
   }

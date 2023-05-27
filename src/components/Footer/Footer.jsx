@@ -46,7 +46,7 @@ const Footer = () => {
           <h3 className="title">Kömək</h3>
           <ul>
             <li>
-              <Link>Tez-tez soruşulan suallar</Link>
+              <Link to={"/questions"}>Tez-tez soruşulan suallar</Link>
             </li>
             <li>
               <a href="/">Çatdırılma xidməti</a>
