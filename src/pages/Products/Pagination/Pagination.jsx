@@ -5,7 +5,7 @@ import Previous from "../../../assets/previous.svg";
 
 const Pagination = () => {
   return (
-    <div className="pagination ">
+    <div className="pagination">
       <button>
         <img src={Previous} alt="previous" />
       </button>

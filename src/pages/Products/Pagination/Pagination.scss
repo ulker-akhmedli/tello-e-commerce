@@ -5,7 +5,6 @@
   justify-content: center;
   gap: 32px;
   margin: 74px 0 144px 0;
-
   button {
     border: 1px solid $clr-gray5;
     border-radius: 18px;
@@ -13,11 +12,13 @@
     background-color: #fff;
     cursor: pointer;
     height: 36px;
+    padding: 11px;
   }
   .pages-num {
     display: flex;
     gap: 40px;
-
+    align-items: center;
+    display: flex;
     span {
       cursor: pointer;
       font-weight: 400;
