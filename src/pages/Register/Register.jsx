@@ -14,27 +14,32 @@ const Register = () => {
         <h3>Qeydiyyat</h3>
         <WithSocial />
         <span className="or">və ya</span>
-        <Form
-          placeholder={"Ad və soyadınızı daxil edin"}
-          type={"text"}
-          name={"Ad, Soyad"}
-        />
-        <Form placeholder={"nümunə@gmail.com"} type={"email"} name={"E-mail"} />
-        <PhoneInput
-          placeholder="00-000-00-00"
-          value={value}
-          onChange={setValue}
-          name={"Mobil nömrə"}
-          defaultCountry="AZ"
-        />
-
+        <form >
+          <Form
+            placeholder={"Ad və soyadınızı daxil edin"}
+            type={"text"}
+            name={"Ad, Soyad"}
+          />
+          <Form
+            placeholder={"nümunə@gmail.com"}
+            type={"email"}
+            name={"E-mail"}
+          />
+          <PhoneInput
+            placeholder="00-000-00-00"
+            value={value}
+            onChange={setValue}
+            name={"Mobil nömrə"}
+            defaultCountry="AZ"
+          />
+          {/* 
         <Form
           placeholder={"Şifrənizi daxil edin"}
           type={"password"}
           name={"Şifrə"}
-        />
-
-        <Button btn={"Qeydiyyat"} />
+        /> */}
+          <Button btn={"Qeydiyyat"} />
+        </form>
       </div>
       <LoginImage
         question={"Artıq hesabınız var? "}

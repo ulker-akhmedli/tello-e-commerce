@@ -82,7 +82,9 @@ const Header = () => {
           <Link to={"/login"}>
             <img src={login} alt="login" />
           </Link>
-          <img src={like} alt="heart" />
+          <Link to={"/profile"}>
+            <img src={like} alt="heart" />
+          </Link>
           <Link to={"/basket"}>
             <img src={basket} alt="basket" />
           </Link>

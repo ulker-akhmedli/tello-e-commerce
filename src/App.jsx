@@ -8,6 +8,7 @@ import Questions from "./pages/Questions/Questions";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Basket from "./pages/Basket/Basket";
+import Profile from "./pages/Profile/Profile";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/questions" element={<Questions />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/basket" element={<Basket />} />
         </Routes>
       </div>
