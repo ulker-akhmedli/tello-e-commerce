@@ -2,6 +2,7 @@ import React from "react";
 import "./EmptyBasket.scss";
 import ShoppingCart from "../../../assets/shopping-cart.svg";
 import Button from "../../Login/Form/Button/Button";
+import { Link } from "react-router-dom";
 
 const EmptyBasket = () => {
   return (
@@ -9,7 +10,9 @@ const EmptyBasket = () => {
       <div className="empty-content">
         <img src={ShoppingCart} alt="cart" />
         <h3>Səbətiniz halhazırda boşdur</h3>
-        <Button btn={"Alış-verişə davam et"} />
+        <Link to={"/"}>
+          <Button btn={"Alış-verişə davam et"} />
+        </Link>
       </div>
     </div>
   );
