@@ -1,10 +1,10 @@
 import React from "react";
 import WithSocial from "./WithSocial/WithSocial.jsx";
 import "./Login.scss";
-import LoginImage from "../../assets/login.png";
 import { Link } from "react-router-dom";
 import Form from "./Form/Form";
 import Button from "./Form/Button/Button";
+import LoginImage from "./LoginImage/LoginImage.jsx";
 const Login = () => {
   return (
     <div className="login container">
@@ -19,16 +19,13 @@ const Login = () => {
           name={"Şifrə"}
         />
         <Link>Şifrəni unutmusunuz?</Link>
-
         <Button btn={"Daxil ol"} />
       </div>
-      <div className="loginImage">
-        <img src={LoginImage} alt="login" />
-        <div className="login-quest">
-          <span>Hesabınız yoxdur? </span>
-          <Link>Qeydiyyatdan keçin</Link>
-        </div>
-      </div>
+      <LoginImage
+        question={"Hesabınız yoxdur? "}
+        page={"/register"}
+        message={"Qeydiyyatdan keçin"}
+      />
     </div>
   );
 };
