@@ -11,8 +11,8 @@ const Products = () => {
   return (
     <div className="products container">
       <div className="left">
-        <Filter />
         <Navigation />
+        <Filter />
       </div>
       <div className="mobile">
         <MobileOption />
