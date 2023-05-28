@@ -6,15 +6,37 @@
     font-size: 20px;
     line-height: 28px;
     color: #4f4f4f;
-    padding: 0 0 8px 76px;
+    padding: 0 0 29px 70px;
+  }
+  .main-content {
+    gap: 42px;
+    display: flex;
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      width: 70%;
+    }
   }
 }
 @media (max-width: 576px) {
   .basket {
     padding: 40px 0 88px 0;
-
     h4 {
       padding: 0 0 24px 16px;
+    }
+    .main-content {
+      width: 90%;
+      gap: 24px;
+      display: flex;
+      flex-direction: column;
+      .main-container {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        width: 100%;
+      }
     }
   }
 }
