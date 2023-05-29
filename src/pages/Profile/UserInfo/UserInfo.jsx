@@ -1,6 +1,6 @@
 import React from "react";
 import "./UserInfo.scss";
-import Form from "../../Login/Form/Form";
+import Input from "../../../components/Input/Input";
 import Button from "../../Login/Form/Button/Button";
 import Edit from "../../../assets/edit.svg";
 
@@ -9,10 +9,10 @@ const UserInfo = () => {
     <form className="userInfo">
       <h1>Şəxsi məlumatlar</h1>
       <div className="infos">
-        <Form type={"email"} name={"Ad"} />
-        <Form type={"email"} name={"Soyad"} />
-        <Form type={"email"} name={"E-mail"} />
-        <Form type={"email"} name={"Mobil nömrə"} />
+        <Input type={"email"} name={"Ad"} />
+        <Input type={"email"} name={"Soyad"} />
+        <Input type={"email"} name={"E-mail"} />
+        <Input type={"email"} name={"Mobil nömrə"} />
         <Button img={Edit} btn={"Məlumatları yenilə"} />
       </div>
     </form>

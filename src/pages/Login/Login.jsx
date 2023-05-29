@@ -1,7 +1,7 @@
 import React from "react";
 import WithSocial from "./WithSocial/WithSocial.jsx";
 import "./Login.scss";
-import Form from "./Form/Form";
+import Input from "../../components/Input/Input.jsx";
 import Button from "./Form/Button/Button";
 import LoginImage from "./LoginImage/LoginImage.jsx";
 const Login = () => {
@@ -12,7 +12,7 @@ const Login = () => {
         <WithSocial />
         <span className="or">və ya</span>
         <form>
-          <Form
+          <Input
             placeholder={"nümunə@gmail.com"}
             type={"email"}
             name={"E-mail"}

@@ -1,8 +1,7 @@
 .loginImage {
   text-align: center;
   width: 50%;
-  margin-bottom: 100px;
-
+  margin-top: 80px;
   .login-quest {
     margin-top: 36px;
     font-weight: 400;
@@ -16,6 +15,7 @@
 @media (max-width: 576px) {
   .loginImage {
     width: 100%;
+    margin-top: 0;
 
     img {
       display: none;

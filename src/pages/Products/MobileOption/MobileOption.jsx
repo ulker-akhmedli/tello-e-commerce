@@ -6,11 +6,11 @@ import "./MobileOption.scss"
 const MobileOption = () => {
   return (
     <div className="mobile-option">
-      <div className="swap">
+      <div className="swaps">
         <img src={Swap} alt="" />
         Sıralama
       </div>
-      <div className="filter">
+      <div className="filters">
         <img src={Filter} alt="" />
         Sıralama
       </div>

@@ -1,7 +1,7 @@
 .products {
   display: flex;
   justify-content: space-between;
-  gap: 45px;
+  gap: 32px;
   .left {
     width: 23%;
   }
@@ -15,17 +15,20 @@
     .card-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 25px;
     }
   }
 }
 @media (max-width: 576px) {
   .products {
+    flex-direction: column;
+    gap: 0;
     .left {
       display: none;
     }
     .mobile{
         display: block;
+        width: 100%;
     }
   }
 }

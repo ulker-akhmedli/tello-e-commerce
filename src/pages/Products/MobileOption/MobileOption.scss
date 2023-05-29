@@ -1,10 +1,20 @@
-.mobile-option{
+@import "../../../scss/variables.scss";
+.mobile-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  padding: 27px 0;
+  border-bottom: 1px solid $clr-basic300;
+
+  .swaps {
     display: flex;
-    
-    .swap{
-
-    }
-    .filter{
-
-    }
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+  .filters {
+    display: flex;
+    gap: 12px;
+  }
 }

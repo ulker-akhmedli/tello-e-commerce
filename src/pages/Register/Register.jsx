@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Register.scss";
 import WithSocial from "../Login/WithSocial/WithSocial";
-import Form from "../Login/Form/Form";
+import Input from "../../components/Input/Input";
 import LoginImage from "../Login/LoginImage/LoginImage";
 import Button from "../Login/Form/Button/Button";
 import "react-phone-number-input/style.css";
@@ -14,13 +14,13 @@ const Register = () => {
         <h3>Qeydiyyat</h3>
         <WithSocial />
         <span className="or">və ya</span>
-        <form >
-          <Form
+        <form>
+          <Input
             placeholder={"Ad və soyadınızı daxil edin"}
             type={"text"}
             name={"Ad, Soyad"}
           />
-          <Form
+          <Input
             placeholder={"nümunə@gmail.com"}
             type={"email"}
             name={"E-mail"}
@@ -33,7 +33,7 @@ const Register = () => {
             defaultCountry="AZ"
           />
           {/* 
-        <Form
+        <Input
           placeholder={"Şifrənizi daxil edin"}
           type={"password"}
           name={"Şifrə"}

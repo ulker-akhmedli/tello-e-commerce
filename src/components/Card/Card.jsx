@@ -3,14 +3,16 @@ import "./Card.scss";
 import IphonePhoto from "../../assets/iphone12.png";
 import azn from "../../assets/azn-symbol.svg";
 
-const Card = () => {
+const Card = ({ id, name, image, price }) => {
   return (
     <div className="card">
-      <img className="productImg" src={IphonePhoto} alt="iphone" />
+      <div className="productImg">
+        <img src={image} alt="product" />
+      </div>
       <div className="product-info">
-        <h3>Apple iPhone 12, 64 GB, Purple</h3>
+        <h3>{name}</h3>
         <div className="price">
-          <span>2089 </span>
+          <span>{price} </span>
           <img src={azn} alt="manat" />
         </div>
       </div>
