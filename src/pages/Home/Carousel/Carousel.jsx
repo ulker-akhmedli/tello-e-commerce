@@ -6,7 +6,7 @@ import Phones from "../../../assets/phones.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Carousel = ({ width }) => {
+const Carousel = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -18,7 +18,7 @@ const Carousel = ({ width }) => {
   };
 
   return (
-    <div className="all" style={{ width: `${width}%` }}>
+    <div className="all">
       <Slider {...settings}>
         <div className="sliders">
           <div className="slide">

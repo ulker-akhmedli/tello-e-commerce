@@ -2,7 +2,7 @@ import React from "react";
 import WithSocial from "./WithSocial/WithSocial.jsx";
 import "./Login.scss";
 import Input from "../../components/Input/Input.jsx";
-import Button from "./Form/Button/Button";
+import Button from "../../components/Button/Button.jsx";
 import LoginImage from "./LoginImage/LoginImage.jsx";
 const Login = () => {
   return (

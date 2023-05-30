@@ -3,7 +3,7 @@ import "./Register.scss";
 import WithSocial from "../Login/WithSocial/WithSocial";
 import Input from "../../components/Input/Input";
 import LoginImage from "../Login/LoginImage/LoginImage";
-import Button from "../Login/Form/Button/Button";
+import Button from "../../components/Button/Button";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 const Register = () => {

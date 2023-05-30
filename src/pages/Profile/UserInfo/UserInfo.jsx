@@ -1,7 +1,7 @@
 import React from "react";
 import "./UserInfo.scss";
 import Input from "../../../components/Input/Input";
-import Button from "../../Login/Form/Button/Button";
+import Button from "../../../components/Button/Button";
 import Edit from "../../../assets/edit.svg";
 
 const UserInfo = () => {

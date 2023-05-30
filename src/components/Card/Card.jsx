@@ -1,11 +1,16 @@
 import React from "react";
 import "./Card.scss";
-import IphonePhoto from "../../assets/iphone12.png";
 import azn from "../../assets/azn-symbol.svg";
+import { useNavigate } from "react-router-dom";
 
 const Card = ({ id, name, image, price }) => {
+  const navigate = useNavigate();
+  const onClickCard = () => {
+    navigate("/details");
+  };
+
   return (
-    <div className="card">
+    <div onClick={onClickCard} className="card">
       <div className="productImg">
         <img src={image} alt="product" />
       </div>

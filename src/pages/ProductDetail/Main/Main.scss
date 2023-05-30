@@ -1,0 +1,89 @@
+@import "../../../scss/variables.scss";
+.main-info {
+  margin-top: 60px;
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #f2f2f2;
+    gap: 16px;
+    padding-bottom: 12px;
+    h1 {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 28px;
+      color: #333333;
+    }
+    span {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+  .numberCarts {
+    padding: 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex: 1;
+    border-top: 1px solid #f2f2f2;
+    margin-bottom: 40px;
+    button {
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    span {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+      color: #1d2123;
+    }
+  }
+  .main-details {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 24px 0;
+
+    .main-color {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+
+      .color {
+        background-color: #bab2e9;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        &:hover {
+          border: 2px solid $clr-main;
+        }
+      }
+    }
+    .memory {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      div {
+        background: $clr-gray6;
+        border-radius: 8px;
+        padding: 8px 16px;
+        cursor: pointer;
+        &:hover {
+          background-color: $clr-gray3;
+        }
+        &.active {
+          background-color: #4f4f4f;
+        }
+      }
+    }
+  }
+}
