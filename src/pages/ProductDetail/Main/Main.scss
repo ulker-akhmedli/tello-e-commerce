@@ -1,6 +1,7 @@
 @import "../../../scss/variables.scss";
 .main-info {
   margin-top: 60px;
+  // width: 50%;
 
   .title {
     display: flex;
@@ -57,14 +58,18 @@
       gap: 22px;
       align-items: center;
 
-      .color {
-        background-color: #bab2e9;
-        border-radius: 50%;
-        width: 32px;
-        height: 32px;
-        cursor: pointer;
-        &:hover {
-          border: 2px solid $clr-main;
+      .colors {
+        display: flex;
+        gap: 22px;
+        .color {
+          background-color: #bab2e9;
+          border-radius: 50%;
+          width: 32px;
+          height: 32px;
+          cursor: pointer;
+          &:hover {
+            border: 2px solid $clr-main;
+          }
         }
       }
     }
@@ -72,16 +77,60 @@
       display: flex;
       gap: 16px;
       align-items: center;
-      div {
-        background: $clr-gray6;
-        border-radius: 8px;
-        padding: 8px 16px;
-        cursor: pointer;
-        &:hover {
-          background-color: $clr-gray3;
+      .memorys {
+        display: flex;
+        gap: 16px;
+        div {
+          background: $clr-gray6;
+          border-radius: 8px;
+          padding: 8px 16px;
+          cursor: pointer;
+          &:hover {
+            background-color: $clr-gray3;
+          }
+          &.active {
+            background-color: #4f4f4f;
+          }
         }
-        &.active {
-          background-color: #4f4f4f;
+      }
+    }
+  }
+}
+@media (max-width: 572px) {
+  .main-info {
+    .title {
+      text-align: center;
+      h1 {
+      }
+      span {
+      }
+    }
+    .numberCarts {
+      justify-content: center;
+      margin-bottom: 20px;
+      padding: 18px 0;
+      button {
+      }
+      span {
+      }
+    }
+    .main-details {
+      padding: 18px 0;
+      .main-color {
+        flex-direction: column;
+        .color {
+          &:hover {
+          }
+        }
+      }
+      .memory {
+        flex-direction: column;
+
+        div {
+          &:hover {
+          }
+          &.active {
+          }
         }
       }
     }

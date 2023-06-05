@@ -1,7 +1,9 @@
 import React from "react";
 import "./Home.scss";
 import Carousel from "./Carousel/Carousel";
-import Product from "./Product/Product";
+import NewProducts from "./Product/NewProducts";
+import BestSellers from "./Product/BestSellers";
+
 import Brand from "./Carousel/Brand/Brand";
 import About from "./About/About";
 import Advert from "../../components/Advert/Advert";
@@ -10,6 +12,7 @@ import Banner from "../../components/Advert/Banner/Banner";
 import Box from "../../assets/box.png";
 import Cardpos from "../../assets/card-pos.png";
 import Guarantee from "../../assets/guarantee.png";
+import Accessories from "./Product/Accessories";
 // import { commerce } from "../../commerce";
 
 const Home = () => {
@@ -21,12 +24,12 @@ const Home = () => {
       <Carousel />
       <div className="homePage container">
         <Caption title={"Ən çox satılan məhsullar"} />
-        <Product />
+        <BestSellers />
         <Caption title={"Yeni gələn məhsullar"} />
-        <Product />
+        <NewProducts />
         <Advert />
         <Caption title={"Yeni gələn aksessuarlar"} />
-        <Product />
+        <Accessories />
         <Banner />
         <div className="about-cont">
           <About image={Box} title={"Çatdırılma"} />

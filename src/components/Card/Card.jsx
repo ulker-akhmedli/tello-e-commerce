@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Card = ({ id, name, image, price }) => {
   const navigate = useNavigate();
   const onClickCard = () => {
-    navigate("/details");
+    navigate(`/details/${id}`);
   };
 
   return (

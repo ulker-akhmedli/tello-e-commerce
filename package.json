@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "@chec/commerce.js": "^2.8.0",
+    "axios": "^1.4.0",
     "react": "^18.2.0",
     "react-content-loader": "^6.2.1",
     "react-dom": "^18.2.0",
     "react-phone-number-input": "^3.2.23",
+    "react-redux": "^8.0.7",
     "react-router-dom": "^6.11.2",
     "react-slick": "^0.29.0",
     "sass": "^1.62.1",

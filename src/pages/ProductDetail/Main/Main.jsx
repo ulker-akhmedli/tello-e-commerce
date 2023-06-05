@@ -17,23 +17,26 @@ const Main = () => {
       <div className="main-details">
         <div className="main-color">
           <span>Rəng:</span>
-          <div className="color"></div>
-          <div className="color"></div>
+          <div className="colors">
+            <div className="color"></div>
+            <div className="color"></div>
+          </div>
         </div>
         <div className="memory">
           <span>Yaddaş:</span>
-          <div>256GB</div>
-          <div>128GB</div>
-          <div>64GB</div>
+          <div className="memorys">
+            <div>256GB</div>
+            <div>128GB</div>
+            <div>64GB</div>
+          </div>
         </div>
       </div>
       <div className="numberCarts">
-
         <button>-</button>
         <span>1</span>
         <button>+</button>
       </div>
-      <Button img={Cart} btn={"Səbətə at"}  />
+      <Button img={Cart} btn={"Səbətə at"} />
     </div>
   );
 };

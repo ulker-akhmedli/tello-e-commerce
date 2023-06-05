@@ -10,6 +10,7 @@ import Register from "./pages/Register/Register";
 import Basket from "./pages/Basket/Basket";
 import Profile from "./pages/Profile/Profile";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
+import Error from "./pages/Error/Error";
 
 const App = () => {
   return (
@@ -24,7 +25,8 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/basket" element={<Basket />} />
-          <Route path="/details" element={<ProductDetail />} />
+          <Route path="/details/:id" element={<ProductDetail />} />
+          <Route path="/error" element={<Error />} />
         </Routes>
       </div>
       <Footer />
