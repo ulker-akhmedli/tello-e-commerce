@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./ProductDetail.scss";
 import { getProductById } from "../../store/actions/product";
 import Navigation from "../../components/Navigation/Navigation";
 import { useParams } from "react-router-dom";
 import SliderSelect from "../../pages/ProductDetail/Sliders/Slider";
-import Main from "./Main/Main";
 import Specifications from "./Specifications/Specifications";
+import Main from "./Main/Main";
 import LoadingSpinner from "../../components/Loading/LoadingSpinner";
 
 const ProductDetail = () => {
@@ -25,7 +25,7 @@ const ProductDetail = () => {
       <Navigation />
       <div className="details container ">
         <SliderSelect images={product?.assets} />
-        <Main />
+        <Main name={product?.name} price={product?.price.raw} />
       </div>
       <Specifications />
     </div>

@@ -1,10 +1,21 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Main.scss";
 import Iphone from "../../../assets/iphone11.jpg";
 import AZN from "../../../assets/azn.svg";
 import Delete from "../../../assets/delete.svg";
 
 const Main = () => {
+  const [quantity, setQuantity] = useState(1);
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity((prev) => prev - 1);
+    }
+  };
+  const handleIncrement = () => {
+    if (quantity < 5) {
+      setQuantity((prev) => prev + 1);
+    }
+  };
   return (
     <div className="mainCart">
       <div className="cart-photo">
@@ -23,9 +34,9 @@ const Main = () => {
         </div>
       </div>
       <div className="numberCarts">
-        <button>-</button>
-        <span>1</span>
-        <button>+</button>
+        <button onClick={handleDecrement}>-</button>
+        <span>{quantity}</span>
+        <button onClick={handleIncrement}>+</button>
       </div>
       <img className="deleteIcon" src={Delete} alt="delete" />
     </div>

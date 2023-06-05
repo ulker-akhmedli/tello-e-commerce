@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Products.scss";
 import Filter from "./Filter/Filter";
 import Navigation from "../../components/Navigation/Navigation";
@@ -32,8 +32,8 @@ const Products = () => {
         <Info />
         <div className="card-list">
           {loading &&
-            new Array(9).fill(0).map((el) => {
-              return <Skeleton />;
+            new Array(9).fill(0).map((el, i) => {
+              return <Skeleton key={i} />;
             })}
           {!loading &&
             products?.data?.length > 0 &&

@@ -9,7 +9,7 @@ const Specifications = () => {
     setComment((prev) => !prev);
   };
 
-  console.log(comment);
+  // console.log(comment);
 
   return (
     <div className="spef">
