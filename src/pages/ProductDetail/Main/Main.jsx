@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./Main.scss";
 import AZN from "../../../assets/azn.svg";
 import Cart from "../../../assets/cart.svg";
-import Button from "../../../components/Button/Button";
+import { commerce } from "../../../commerce";
 
-const Main = ({ name, price }) => {
+const Main = ({ name, price, id }) => {
   const [quantity, setQuantity] = useState(1);
   const handleDecrement = () => {
     if (quantity > 1) {
@@ -16,6 +16,9 @@ const Main = ({ name, price }) => {
       setQuantity((prev) => prev + 1);
     }
   };
+  async function addToBasket() {
+    commerce.cart.add({ id }, 1).then((response) => console.log(response));
+  }
   return (
     <div className="main-info">
       <div className="title">
@@ -47,7 +50,11 @@ const Main = ({ name, price }) => {
         <span>{quantity}</span>
         <button onClick={handleIncrement}>+</button>
       </div>
-      <Button img={Cart} btn={"Səbətə at"} />
+      {/* <Button   btn={"Səbətə at"} /> */}
+      <button className="addCart" onClick={addToBasket}>
+        Səbətə at
+        <img src={Cart} alt="basket" />
+      </button>
     </div>
   );
 };

@@ -25,7 +25,11 @@ const ProductDetail = () => {
       <Navigation />
       <div className="details container ">
         <SliderSelect images={product?.assets} />
-        <Main name={product?.name} price={product?.price.raw} />
+        <Main
+          name={product?.name}
+          price={product?.price.raw}
+          id={product?.id}
+        />
       </div>
       <Specifications />
     </div>

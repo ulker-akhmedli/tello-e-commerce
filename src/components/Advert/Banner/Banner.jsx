@@ -12,7 +12,7 @@ const Banner = ({ width, title, nameProducts }) => {
         <div className="banner-title">
           <h3>Telefon</h3>
           {/* <span>Məhsul sayı: 322</span> */}
-          <Link>
+          <Link to={"/products"}>
             Məhsullara keçid
             <img src={BannerIcon} alt="icon" />
           </Link>
@@ -21,13 +21,12 @@ const Banner = ({ width, title, nameProducts }) => {
           <img className="xiaomi" src={Xiaomi} alt="Xiaomi" />
         </div>
       </div>
-
       <div className="other">
         <div className="banner small" style={{ width: `${width}%` }}>
           <div className="banner-title">
             <h3>Smart Saat</h3>
             {/* <span>Məhsul sayı: 322</span> */}
-            <Link>
+            <Link to={"/products"}>
               Məhsullara keçid
               <img src={BannerIcon} alt="icon" />
             </Link>
@@ -40,7 +39,7 @@ const Banner = ({ width, title, nameProducts }) => {
           <div className="banner-title">
             <h3>Aksesuar</h3>
             {/* <span>Məhsul sayı: 322</span> */}
-            <Link>
+            <Link to={"/products"}>
               Məhsullara keçid
               <img src={BannerIcon} alt="icon" />
             </Link>

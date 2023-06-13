@@ -15,6 +15,7 @@ export const getProducts = async (setLoading, setProducts, params) => {
   try {
     setLoading(true);
     const { data: response } = await axios.get(url, { headers });
+    // console.log(response);
     setProducts(response.data);
     setLoading(false);
     return response.data;
@@ -35,7 +36,7 @@ export const getProductById = async (setLoading, setProduct, id) => {
   try {
     setLoading(true);
     const { data: response } = await axios.get(url, { headers });
-    console.log(response);
+    // console.log(response);
     setProduct(response);
     setLoading(false);
     return response.data;

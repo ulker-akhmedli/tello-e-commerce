@@ -23,6 +23,10 @@ const Header = () => {
   const handleInputClick = () => {
     setDropdownVisible(true);
   };
+  const handleOutsideClick = () => {
+    setDropdownVisible(false);
+  };
+  // console.log(dropdownVisible);
 
   const handleDropdownItemClick = (item) => {
     setInputValue(item);
@@ -75,6 +79,18 @@ const Header = () => {
                 </button>
               </div>
             </div>
+          )}
+          {dropdownVisible && (
+            <div
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                bottom: 0,
+                right: 0,
+              }}
+              onClick={handleOutsideClick}
+            />
           )}
         </form>
 

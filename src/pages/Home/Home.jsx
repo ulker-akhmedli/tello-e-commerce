@@ -3,7 +3,6 @@ import "./Home.scss";
 import Carousel from "./Carousel/Carousel";
 import NewProducts from "./Product/NewProducts";
 import BestSellers from "./Product/BestSellers";
-
 import Brand from "./Carousel/Brand/Brand";
 import About from "./About/About";
 import Advert from "../../components/Advert/Advert";

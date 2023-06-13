@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./Filter.scss";
 import Plus from "../../../assets/plus.svg";
 import Minus from "../../../assets/minus.svg";
-
+// import { commerce } from "../../../commerce";
 const Filter = () => {
+
   const [filter, setFilter] = useState(false);
 
   const setFilterOpen = () => {

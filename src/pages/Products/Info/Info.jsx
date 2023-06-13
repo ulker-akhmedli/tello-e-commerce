@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./Info.scss";
 import Sort from "../../../assets/sort.svg";
+import { commerce } from "../../../commerce";
 
 const Info = () => {
   const [sortDropDown, setSortDropDown] = useState(false);
+
   const setDropdownOpen = () => {
     setSortDropDown((prev) => !prev);
   };

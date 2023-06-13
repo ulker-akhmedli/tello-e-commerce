@@ -2,7 +2,15 @@ import React from "react";
 import "./Advert.scss";
 import Iphone11 from "../../assets/iphone11.jpg";
 import Airtag from "../../assets/airtag.jpeg";
+import { useNavigate } from "react-router-dom";
 const Advert = () => {
+  const navigate = useNavigate();
+  const handleBannerPhone = () => {
+    navigate("/details/prod_QG375v3NnQlrMO");
+  };
+  const handleBannerWhatch = () => {
+    navigate("details/prod_VKXmwDy7GXorgD");
+  };
   return (
     <div className="adverts">
       <div className="advert">
@@ -14,7 +22,7 @@ const Advert = () => {
             <span>1 519 AZN</span>
             <span className="second">Faizsiz taksitlə 127 AZN-dən</span>
           </div>
-          <button>İndi alın</button>
+          <button onClick={handleBannerPhone}>İndi alın</button>
         </div>
         <div className="advImg">
           <img src={Iphone11} alt="Iphone11" />
@@ -27,7 +35,7 @@ const Advert = () => {
           <div className="price">
             <span>79 AZN-dən</span>
           </div>
-          <button>İndi alın</button>
+          <button onClick={handleBannerWhatch}>İndi alın</button>
         </div>
         <div className="advImg">
           <img src={Airtag} alt="Iphone11" />

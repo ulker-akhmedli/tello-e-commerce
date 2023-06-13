@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Products.scss";
 import Filter from "./Filter/Filter";
 import Navigation from "../../components/Navigation/Navigation";
@@ -7,11 +7,15 @@ import Card from "../../components/Card/Card";
 import Pagination from "./Pagination/Pagination";
 import MobileOption from "./MobileOption/MobileOption";
 import { commerce } from "../../commerce";
+// import { useParams } from "react-router-dom";
 import Skeleton from "../../components/Skeleton/Card";
 
+
 const Products = () => {
+  window.scrollTo(0, 0);
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(null);
+  // const { slug } = useParams();
   React.useEffect(() => {
     setLoading(true);
     commerce.products.list().then((product) => {
@@ -22,7 +26,7 @@ const Products = () => {
   return (
     <div className="products container ">
       <div className="left">
-        <Navigation />
+        <Navigation  />
         <Filter />
       </div>
       <div className="mobile">

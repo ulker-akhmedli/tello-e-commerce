@@ -4,6 +4,7 @@ import "./Login.scss";
 import Input from "../../components/Input/Input.jsx";
 import Button from "../../components/Button/Button.jsx";
 import LoginImage from "./LoginImage/LoginImage.jsx";
+// import HookForm from "../../components/HookForm/HookForm.jsx";
 const Login = () => {
   return (
     <div className="login container">
@@ -12,6 +13,7 @@ const Login = () => {
         <WithSocial />
         <span className="or">və ya</span>
         <form>
+          {/* <HookForm/> */}
           <Input
             placeholder={"nümunə@gmail.com"}
             type={"email"}
