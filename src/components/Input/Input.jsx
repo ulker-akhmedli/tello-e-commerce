@@ -1,11 +1,17 @@
 import React from "react";
 import "./Input.scss";
 
-const Form = ({ name, type, placeholder, id }) => {
+const Form = ({ errors,register, name, type, placeholder, id }) => {
   return (
     <div className="inputGroup">
       <label htmlFor="">{name}</label>
-      <input id="" placeholder={placeholder} type={type} />
+      <input
+        // {...register(name, {
+        //   pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        // })}
+        placeholder={placeholder}
+      />
+      {/* {errors?.[name] && <span>Please enter invalid data</span>} */}
     </div>
   );
 };

@@ -6,7 +6,17 @@ import LoginImage from "../Login/LoginImage/LoginImage";
 import Button from "../../components/Button/Button";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
+// import { useForm } from "react-hook-form";
+
 const Register = () => {
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   watch,
+  //   pattern,
+  //   formState: { errors },
+  // } = useForm();
+  // const onSubmit = (data) => console.log(data);
   const [value, setValue] = useState();
   return (
     <div className="container register">
@@ -19,11 +29,17 @@ const Register = () => {
             placeholder={"Ad və soyadınızı daxil edin"}
             type={"text"}
             name={"Ad, Soyad"}
+            // register={register}
+            // pattern={pattern}
+            // errors={errors}
           />
           <Input
             placeholder={"nümunə@gmail.com"}
             type={"email"}
             name={"E-mail"}
+            // register={register}
+            // pattern={pattern}
+            // errors={errors}
           />
           <PhoneInput
             placeholder="00-000-00-00"
@@ -32,12 +48,6 @@ const Register = () => {
             name={"Mobil nömrə"}
             defaultCountry="AZ"
           />
-          {/* 
-        <Input
-          placeholder={"Şifrənizi daxil edin"}
-          type={"password"}
-          name={"Şifrə"}
-        /> */}
           <Button btn={"Qeydiyyat"} />
         </form>
       </div>

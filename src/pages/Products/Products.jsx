@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import "./Products.scss";
 import Filter from "./Filter/Filter";
 import Navigation from "../../components/Navigation/Navigation";
@@ -7,26 +7,39 @@ import Card from "../../components/Card/Card";
 import Pagination from "./Pagination/Pagination";
 import MobileOption from "./MobileOption/MobileOption";
 import { commerce } from "../../commerce";
-// import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import Skeleton from "../../components/Skeleton/Card";
-
-
+import { getProductsBySlug } from "../../store/actions/product";
 const Products = () => {
   window.scrollTo(0, 0);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(null);
-  // const { slug } = useParams();
+  const { slug } = useParams();
+  const currentPage = React.useCallback(
+    Number(searchParams.get("page") || 1, [searchParams])
+  );
+
+  const params = React.useCallback(
+    {
+      category_slug: [slug],
+      // query: values.toString() || null,
+      limit: 4,
+      page: currentPage,
+      // sortBy: currentOption.actions.sortBy,
+      // sortDirection: currentOption.actions.sortDirection,
+    },
+    [searchParams]
+  );
+
   React.useEffect(() => {
-    setLoading(true);
-    commerce.products.list().then((product) => {
-      setProducts(product);
-      setLoading(false);
-    });
-  }, []);
+    getProductsBySlug(setLoading, setProducts, params);
+  }, [slug, params]);
+  console.log(products);
   return (
     <div className="products container ">
       <div className="left">
-        <Navigation  />
+        <Navigation />
         <Filter />
       </div>
       <div className="mobile">
@@ -53,7 +66,13 @@ const Products = () => {
               );
             })}
         </div>
-        <Pagination />
+        <Pagination
+          data={products?.meta?.pagination}
+          currentPage={currentPage}
+          // setCurrentPage={setCurrentPage}
+          searchParams={searchParams}
+          setSearchParams={setSearchParams}
+        />
       </div>
     </div>
   );

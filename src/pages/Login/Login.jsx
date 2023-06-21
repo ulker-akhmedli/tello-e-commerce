@@ -4,8 +4,17 @@ import "./Login.scss";
 import Input from "../../components/Input/Input.jsx";
 import Button from "../../components/Button/Button.jsx";
 import LoginImage from "./LoginImage/LoginImage.jsx";
-// import HookForm from "../../components/HookForm/HookForm.jsx";
+// import { useForm } from "react-hook-form";
+
 const Login = () => {
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   watch,
+  //   pattern,
+  //   formState: { errors },
+  // } = useForm();
+  // const onSubmit = (data) => console.log(data);
   return (
     <div className="login container">
       <div className="login-form">
@@ -13,18 +22,13 @@ const Login = () => {
         <WithSocial />
         <span className="or">və ya</span>
         <form>
-          {/* <HookForm/> */}
           <Input
             placeholder={"nümunə@gmail.com"}
-            type={"email"}
             name={"E-mail"}
+            // register={register}
+            // pattern={pattern}
+            // errors={errors}
           />
-          {/* <Form
-          placeholder={"Şifrənizi daxil edin"}
-          type={"password"}
-          name={"Şifrə"}
-        />
-        <Link>Şifrəni unutmusunuz?</Link> */}
           <Button btn={"Daxil ol"} />
         </form>
       </div>
