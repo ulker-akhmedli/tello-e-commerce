@@ -4,7 +4,10 @@ import AZN from "../../../assets/azn.svg";
 import Cart from "../../../assets/cart.svg";
 import { commerce } from "../../../commerce";
 
-const Main = ({ name, price, id }) => {
+const Main = ({ name, price, id, variant_groups }) => {
+  const color = variant_groups?.find((el) => el.name == "color");
+  const storage = variant_groups?.find((el) => el.name == "storage");
+
   const [quantity, setQuantity] = useState(1);
   const handleDecrement = () => {
     if (quantity > 1) {
@@ -32,16 +35,32 @@ const Main = ({ name, price, id }) => {
         <div className="main-color">
           <span>Rəng:</span>
           <div className="colors">
-            <div className="color"></div>
-            <div className="color"></div>
+            {color?.options.map((el) => {
+              return (
+                <div
+                  key={el.id}
+                  className="color"
+                  style={{ backgroundColor: el.name }}
+                  onClick={() => console.log(el.id)}
+                ></div>
+              );
+            })}
           </div>
         </div>
         <div className="memory">
           <span>Yaddaş:</span>
           <div className="memorys">
-            <div>256GB</div>
-            <div>128GB</div>
-            <div>64GB</div>
+            {storage?.options.map((el) => {
+              return (
+                <div
+                  key={el.id}
+                  style={{ backgroundColor: el.name }}
+                  onClick={() => console.log(el.id)}
+                >
+                  {el.name}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

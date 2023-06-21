@@ -114,38 +114,24 @@
   .main-info {
     .title {
       text-align: center;
-      h1 {
-      }
-      span {
-      }
+     
     }
     .numberCarts {
       justify-content: center;
       margin-bottom: 20px;
       padding: 18px 0;
-      button {
-      }
-      span {
-      }
+      
     }
     .main-details {
       padding: 18px 0;
       .main-color {
         flex-direction: column;
-        .color {
-          &:hover {
-          }
-        }
+       
       }
       .memory {
         flex-direction: column;
 
-        div {
-          &:hover {
-          }
-          &.active {
-          }
-        }
+        
       }
     }
   }

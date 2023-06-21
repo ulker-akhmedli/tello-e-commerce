@@ -4,7 +4,7 @@ import Close from "../../../assets/close.svg";
 import { Link } from "react-router-dom";
 import Logo from "../../Logo/Logo";
 
-const MobileNav = ({ setMobileNavbar, mobileNavbar }) => {
+const MobileNav = ({ setMobileNavbar, mobileNavbar, categories }) => {
   const closeNavbar = () => {
     setMobileNavbar(false);
   };
@@ -14,28 +14,14 @@ const MobileNav = ({ setMobileNavbar, mobileNavbar }) => {
         <img onClick={closeNavbar} src={Close} alt="close" />
         <Logo />
       </div>
-      <ul>
-        <li>
-          <Link>Yeni</Link>
-        </li>
-        <li>
-          <Link to={"/products"}>Apple</Link>
-        </li>
-        <li>
-          <Link>Samsung</Link>
-        </li>
-        <li>
-          <Link>Xiaomi</Link>
-        </li>
-        <li>
-          <Link>Redmi</Link>
-        </li>
-        <li>
-          <Link>Bütün Brendlər</Link>
-        </li>
-        <li>
-          <Link>Endirimlər</Link>
-        </li>
+      <ul className="navbar">
+        {categories.slice(2.6).map((el) => {
+          return (
+            <li key={el.id}>
+              <Link to={`products/${el.slug}`}>{el.name}</Link>
+            </li>
+          );
+        })}
       </ul>
       <div className="login-buttons">
         <button className="first button">Daxil ol</button>

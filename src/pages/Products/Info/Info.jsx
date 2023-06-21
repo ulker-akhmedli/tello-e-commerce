@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "./Info.scss";
 import Sort from "../../../assets/sort.svg";
-import { commerce } from "../../../commerce";
 
-const Info = () => {
+const Info = ({ loading, products }) => {
   const [sortDropDown, setSortDropDown] = useState(false);
 
   const setDropdownOpen = () => {
@@ -13,7 +12,9 @@ const Info = () => {
   return (
     <div className="info">
       <div className="product-number">
-        <span>287 məhsul tapıldı</span>
+        {loading
+          ? "Axtarılır..."
+          : `${products.meta?.pagination.total} məhsul tapıldı`}
       </div>
       <div className="sort" onClick={setDropdownOpen}>
         <span>Ən yenilər</span>

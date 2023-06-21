@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import "./Products.scss";
 import Filter from "./Filter/Filter";
 import Navigation from "../../components/Navigation/Navigation";
@@ -6,16 +6,17 @@ import Info from "./Info/Info";
 import Card from "../../components/Card/Card";
 import Pagination from "./Pagination/Pagination";
 import MobileOption from "./MobileOption/MobileOption";
-import { commerce } from "../../commerce";
 import { useParams, useSearchParams } from "react-router-dom";
 import Skeleton from "../../components/Skeleton/Card";
 import { getProductsBySlug } from "../../store/actions/product";
+
 const Products = () => {
   window.scrollTo(0, 0);
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(null);
   const { slug } = useParams();
+
   const currentPage = React.useCallback(
     Number(searchParams.get("page") || 1, [searchParams])
   );
@@ -23,11 +24,8 @@ const Products = () => {
   const params = React.useCallback(
     {
       category_slug: [slug],
-      // query: values.toString() || null,
-      limit: 4,
+      limit: 6,
       page: currentPage,
-      // sortBy: currentOption.actions.sortBy,
-      // sortDirection: currentOption.actions.sortDirection,
     },
     [searchParams]
   );
@@ -35,7 +33,7 @@ const Products = () => {
   React.useEffect(() => {
     getProductsBySlug(setLoading, setProducts, params);
   }, [slug, params]);
-  console.log(products);
+
   return (
     <div className="products container ">
       <div className="left">
@@ -46,10 +44,10 @@ const Products = () => {
         <MobileOption />
       </div>
       <div className="product-list">
-        <Info />
+        <Info loading={loading}  products={products}/>
         <div className="card-list">
           {loading &&
-            new Array(9).fill(0).map((el, i) => {
+            new Array(9).fill(0).map((_, i) => {
               return <Skeleton key={i} />;
             })}
           {!loading &&
@@ -66,13 +64,15 @@ const Products = () => {
               );
             })}
         </div>
-        <Pagination
-          data={products?.meta?.pagination}
-          currentPage={currentPage}
-          // setCurrentPage={setCurrentPage}
-          searchParams={searchParams}
-          setSearchParams={setSearchParams}
-        />
+        {!loading && (
+          <Pagination
+            data={products?.meta?.pagination}
+            currentPage={currentPage}
+            // setCurrentPage={setCurrentPage}
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
+          />
+        )}
       </div>
     </div>
   );

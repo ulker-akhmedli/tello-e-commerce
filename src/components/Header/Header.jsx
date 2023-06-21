@@ -10,11 +10,22 @@ import HamburgerMenu from "../../assets/menu.svg";
 import Logo from "../Logo/Logo";
 import MobileNav from "./MobileNav/MobileNav";
 import { Link } from "react-router-dom";
-
+import { getCategoriesName } from "../../store/actions/categories";
+import { useParams } from "react-router-dom";
 const Header = () => {
   const [inputValue, setInputValue] = useState("");
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [lastSearch, setLastSearch] = useState("");
+  const [categories, setProducts] = useState([]);
+  const [loading, setLoading] = useState(null);
+  const { slug } = useParams();
+
+  const params = {
+    depth: "2",
+  };
+  React.useEffect(() => {
+    getCategoriesName(setLoading, setProducts, params);
+  }, [slug, params]);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -109,8 +120,10 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <Nav />
+      <Nav categories={categories} loading={loading} />
       <MobileNav
+        categories={categories}
+        loading={loading}
         setMobileNavbar={setMobileNavbar}
         mobileNavbar={mobileNavbar}
       />

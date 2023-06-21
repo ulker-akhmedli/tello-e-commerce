@@ -13,18 +13,24 @@
     cursor: pointer;
     height: 36px;
     padding: 11px;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
   .pages-num {
     display: flex;
     gap: 40px;
     align-items: center;
     display: flex;
+
     span {
       cursor: pointer;
       font-weight: 400;
       font-size: 20px;
       line-height: 28px;
       color: $clr-gray2;
+
       &.active {
         background: $clr-main;
         border-radius: 8px;

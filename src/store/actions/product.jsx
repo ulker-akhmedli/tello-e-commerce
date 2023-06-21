@@ -6,6 +6,7 @@ const headers = {
   Accept: "application/json",
   "Content-Type": "application/json",
 };
+
 export const getProducts = async (setLoading, setProducts, params) => {
   const url = new URL("https://api.chec.io/v1/products");
   Object.keys(params).forEach((key) =>
@@ -14,7 +15,6 @@ export const getProducts = async (setLoading, setProducts, params) => {
   try {
     setLoading(true);
     const { data: response } = await axios.get(url, { headers });
-
     setProducts(response.data);
     setLoading(false);
     return response.data;
@@ -31,7 +31,6 @@ export const getProductsBySlug = async (setLoading, setProducts, params) => {
   try {
     setLoading(true);
     const { data: response } = await axios.get(url, { headers });
-    console.log(response);
     setProducts(response);
     setLoading(false);
     return response.data;
@@ -41,33 +40,46 @@ export const getProductsBySlug = async (setLoading, setProducts, params) => {
   }
 };
 
+// export const getProductById = async (setLoading, setProduct, id) => {
+//   const url = new URL(`https://api.chec.io/v1/products/${id}`);
+//   const params = {
+//     type: "id",
+//   };
+//   Object.keys(params).forEach((key) =>
+//     url.searchParams.append(key, params[key])
+//   );
+//   try {
+//     setLoading(true);
+//     const { data: response } = await axios.get(url, { headers });
+//     setProduct(response);
+//     setLoading(false);
+//     return response.data;
+//   } catch (err) {
+//     console.log(err);
+//     return err.message;
+//   }
+// };
 export const getProductById = async (setLoading, setProduct, id) => {
-  const url = new URL(`https://api.chec.io/v1/products/${id}`);
-  const params = {
-    type: "id",
-  };
-  Object.keys(params).forEach((key) =>
-    url.searchParams.append(key, params[key])
-  );
+  const urlProduct = `https://api.chec.io/v1/products/${id}`;
+  const urlListVariant = `https://api.chec.io/v1/products/${id}/variants`;
   try {
     setLoading(true);
-    const { data: response } = await axios.get(url, { headers });
-    setProduct(response);
+    //!
+    const { data: product } = await axios.get(urlProduct, {
+      headers,
+    });
+    const { data: variantList } = await axios.get(urlListVariant, {
+      headers,
+    });
+    //!
+    setProduct({
+      data: product,
+      variantList: variantList.data,
+    });
     setLoading(false);
-    return response.data;
+    return "success";
   } catch (err) {
-    console.log(err);
-    return err.message;
-  }
-};
-
-export const getVariant = async (id, setVariants) => {
-  const url = new URL(`https://api.chec.io/v1/products/${id}/variants`);
-  try {
-    const { data: response } = await axios.get(url, { headers });
-    setVariants(response.data);
-    return response.data;
-  } catch (err) {
+    setLoading(false);
     return err.message;
   }
 };
