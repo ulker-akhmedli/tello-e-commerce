@@ -1,6 +1,6 @@
 import { token } from "../../commerce";
 import axios from "axios";
-import { commerce } from "../../commerce";
+
 const headers = {
   "X-Authorization": token,
   Accept: "application/json",

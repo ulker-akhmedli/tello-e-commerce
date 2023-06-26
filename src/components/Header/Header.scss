@@ -3,7 +3,7 @@ header {
   margin: 0 auto;
   border-bottom: 1px solid $clr-main;
   width: 100%;
-  padding: 20px 75px 0 75px;
+  // padding: 20px 75px 0 75px;
   position: relative;
 
   .headerline {
@@ -11,6 +11,7 @@ header {
     justify-content: space-between;
     padding: 24px 0;
     align-items: center;
+    padding: 24px 75px 28px 75px;
 
     .hamburger {
       width: 20.1px;
@@ -120,29 +121,14 @@ header {
       .hamburger {
         display: block;
       }
-      .logo {
-        h2 {
-        }
-      }
+
       form {
         order: 1;
         margin: 16px;
-        .inputDropdown {
-          .search {
-            button {
-            }
-          }
 
-          .last-search {
-            span {
-            }
-          }
-        }
         input {
           width: 328px;
           background-color: $clr-basic200;
-          &::placeholder {
-          }
         }
         img {
           left: 5%;
@@ -153,8 +139,7 @@ header {
         position: relative;
         gap: 15px;
         margin-left: 20px;
-        img {
-        }
+
         .circle {
           position: absolute;
           right: -10%;

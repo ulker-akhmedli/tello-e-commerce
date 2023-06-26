@@ -23,7 +23,11 @@ const ProductDetail = () => {
   }
   return (
     <div className="container">
-      <Navigation />
+      <Navigation
+        name={product?.data?.name}
+        id={product?.data?.id}
+        product={product}
+      />
       <div className="details container ">
         <SliderSelect images={product?.data?.assets} />
         <Main

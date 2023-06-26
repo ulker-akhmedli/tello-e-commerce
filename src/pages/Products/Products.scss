@@ -30,5 +30,34 @@
       display: block;
       width: 100%;
     }
+    .product-list {
+      margin-top: 32px;
+      width: 100%;
+      .card-list {
+        gap: 26px;
+        .card {
+          width: 156px;
+          height: 284px;
+          padding: 20px 12px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          .productImg {
+            width: 101px;
+            height: 142px;
+            margin: 0 auto;
+          }
+          .product-info {
+            gap: 16px;
+            h3 {
+              font-size: 14px;
+              line-height: 20px;
+              width: 132px;
+              height: 48px;
+            }
+          }
+        }
+      }
+    }
   }
 }

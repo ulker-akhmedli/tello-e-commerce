@@ -12,7 +12,7 @@ const Banner = ({ width, title, nameProducts }) => {
         <div className="banner-title">
           <h3>Telefon</h3>
           {/* <span>Məhsul sayı: 322</span> */}
-          <Link to={"/products"}>
+          <Link to={"/products/mobil-telefonlar"}>
             Məhsullara keçid
             <img src={BannerIcon} alt="icon" />
           </Link>
@@ -26,7 +26,7 @@ const Banner = ({ width, title, nameProducts }) => {
           <div className="banner-title">
             <h3>Smart Saat</h3>
             {/* <span>Məhsul sayı: 322</span> */}
-            <Link to={"/products"}>
+            <Link to={"/products/smart-saatlar"}>
               Məhsullara keçid
               <img src={BannerIcon} alt="icon" />
             </Link>
@@ -39,7 +39,7 @@ const Banner = ({ width, title, nameProducts }) => {
           <div className="banner-title">
             <h3>Aksesuar</h3>
             {/* <span>Məhsul sayı: 322</span> */}
-            <Link to={"/products"}>
+            <Link to={"/products/aksesuarlar"}>
               Məhsullara keçid
               <img src={BannerIcon} alt="icon" />
             </Link>

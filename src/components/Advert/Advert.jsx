@@ -13,7 +13,7 @@ const Advert = () => {
   };
   return (
     <div className="adverts">
-      <div className="advert">
+      <div className="advert dropAdvert">
         <div className="advert-info">
           <h4>Iphone 11</h4>
           <h4>Rəngli.Güclü</h4>

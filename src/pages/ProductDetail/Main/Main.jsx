@@ -69,7 +69,7 @@ const Main = ({ name, price, id, variant_groups }) => {
         <span>{quantity}</span>
         <button onClick={handleIncrement}>+</button>
       </div>
-      {/* <Button   btn={"Səbətə at"} /> */}
+      {/* <Button btn={"Səbətə at"} /> */}
       <button className="addCart" onClick={addToBasket}>
         Səbətə at
         <img src={Cart} alt="basket" />

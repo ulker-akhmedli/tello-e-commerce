@@ -21,11 +21,16 @@ const Products = () => {
     Number(searchParams.get("page") || 1, [searchParams])
   );
 
+  // const currentOption = React.useCallback(
+  //   Number(searchParams.get("sortBy")) || optionsOrder[0]
+  // );
   const params = React.useCallback(
     {
       category_slug: [slug],
       limit: 6,
       page: currentPage,
+      // sortBy: currentOption.actions.sortBy,
+      // sortDirection: currentOption.actions.sortDirection,
     },
     [searchParams]
   );
@@ -36,8 +41,13 @@ const Products = () => {
   return (
     <div className="products container ">
       <div className="left">
-        <Navigation />
-        <Filter />
+        <Navigation  />
+        <Filter
+        // currentOption={currentOption}
+        // options={optionsOrder}
+        // searchParams={searchParams}
+        // setSearchParams={setSearchParams}
+        />
       </div>
       <div className="mobile">
         <MobileOption />

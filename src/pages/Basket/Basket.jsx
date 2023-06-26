@@ -2,7 +2,6 @@ import React from "react";
 import "./Basket.scss";
 import Amount from "./Amount/Amount";
 import Main from "./Main/Main";
-// import EmptyBasket from "./EmptyBasket/EmptyBasket";
 
 const Basket = () => {
   return (
