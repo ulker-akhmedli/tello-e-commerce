@@ -6,6 +6,9 @@
     display: flex;
     align-items: center;
     gap: 11px;
+    .slug{
+      text-transform: capitalize;
+    }
     li {
       display: flex;
       gap: 11px;

@@ -4,30 +4,38 @@ import "./Login.scss";
 import Input from "../../components/Input/Input.jsx";
 import Button from "../../components/Button/Button.jsx";
 import LoginImage from "./LoginImage/LoginImage.jsx";
-// import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   watch,
-  //   pattern,
-  //   formState: { errors },
-  // } = useForm();
-  // const onSubmit = (data) => console.log(data);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    pattern,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="login container">
       <div className="login-form">
         <h3>Daxil ol</h3>
         <WithSocial />
         <span className="or">və ya</span>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <Input
             placeholder={"nümunə@gmail.com"}
             name={"E-mail"}
-            // register={register}
-            // pattern={pattern}
-            // errors={errors}
+            register={register}
+            errors={errors}
+            label={"e-mail"}
+            validation={{
+              pattern: {
+                value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+              },
+            }}
           />
           <Button btn={"Daxil ol"} />
         </form>

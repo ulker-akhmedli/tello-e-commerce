@@ -15,8 +15,8 @@ const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(null);
-  const { slug } = useParams();
 
+  const { slug } = useParams();
   const currentPage = React.useCallback(
     Number(searchParams.get("page") || 1, [searchParams])
   );
@@ -29,7 +29,6 @@ const Products = () => {
     },
     [searchParams]
   );
-
   React.useEffect(() => {
     getProductsBySlug(setLoading, setProducts, params);
   }, [slug, params]);
@@ -44,7 +43,7 @@ const Products = () => {
         <MobileOption />
       </div>
       <div className="product-list">
-        <Info loading={loading}  products={products}/>
+        <Info loading={loading} products={products} />
         <div className="card-list">
           {loading &&
             new Array(9).fill(0).map((_, i) => {

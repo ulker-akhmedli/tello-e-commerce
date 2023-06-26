@@ -16,7 +16,7 @@ const Header = () => {
   const [inputValue, setInputValue] = useState("");
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [lastSearch, setLastSearch] = useState("");
-  const [categories, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(null);
   const { slug } = useParams();
 
@@ -24,7 +24,7 @@ const Header = () => {
     depth: "2",
   };
   React.useEffect(() => {
-    getCategoriesName(setLoading, setProducts, params);
+    getCategoriesName(setLoading, setCategories, params);
   }, [slug, params]);
 
   const handleInputChange = (e) => {
@@ -37,7 +37,6 @@ const Header = () => {
   const handleOutsideClick = () => {
     setDropdownVisible(false);
   };
-  // console.log(dropdownVisible);
 
   const handleDropdownItemClick = (item) => {
     setInputValue(item);

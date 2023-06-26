@@ -6,7 +6,7 @@ const headers = {
   Accept: "application/json",
   "Content-Type": "application/json",
 };
-export const getCategoriesName = async (setLoading, setProducts, params) => {
+export const getCategoriesName = async (setLoading, setCategories, params) => {
   const url = new URL("https://api.chec.io/v1/categories");
   Object.keys(params).forEach((key) =>
     url.searchParams.append(key, params[key])
@@ -14,7 +14,7 @@ export const getCategoriesName = async (setLoading, setProducts, params) => {
   try {
     setLoading(true);
     const { data: response } = await axios.get(url, { headers });
-    setProducts(response.data);
+    setCategories(response.data);
     setLoading(false);
     return response.data;
   } catch (err) {

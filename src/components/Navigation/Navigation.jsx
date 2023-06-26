@@ -4,26 +4,24 @@ import { useLocation, Link } from "react-router-dom";
 import Navigat from "../../assets/navigat.svg";
 
 const Navigation = () => {
-  const { pathname } = useLocation();
+  const { pathname, key } = useLocation();
   return (
     <div className="navigation">
       <ul>
-        <li>
+        <li className="category">
           <Link to={"/"}>Ana səhifə</Link>
         </li>
-        <li>
-          <img src={Navigat} alt="icon" />
-          <Link to={"/products"}>Apple</Link>
-        </li>
+        <img src={Navigat} alt="icon" />
+        {pathname.split("/products/").map((p) => {
+          return (
+            <li className="slug">
+              <Link key={key} to={`/${p}`}>
+                {p}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
-      {/* {pathname.split("/").map((p) => {
-        return (
-          <Link key={Math.random() * 1000} to={`/${p}`}>
-            {p}
-            
-          </Link>
-        );
-      })} */}
     </div>
   );
 };
