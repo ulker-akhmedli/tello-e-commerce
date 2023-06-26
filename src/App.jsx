@@ -11,6 +11,7 @@ import Basket from "./pages/Basket/Basket";
 import Profile from "./pages/Profile/Profile";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Error from "./pages/Error/Error";
+import LoginMessage from "./pages/Login/LoginMessage/LoginMessage";
 
 const App = () => {
   return (

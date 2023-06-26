@@ -15,7 +15,6 @@ const Nav = ({ loading, categories }) => {
             </li>
           );
         })}
-
       </ul>
     </nav>
   );
