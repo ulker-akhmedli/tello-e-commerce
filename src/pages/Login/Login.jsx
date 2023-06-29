@@ -6,9 +6,12 @@ import Button from "../../components/Button/Button.jsx";
 import LoginImage from "./LoginImage/LoginImage.jsx";
 import { useForm } from "react-hook-form";
 import LoginMessage from "./LoginMessage/LoginMessage.jsx";
+import { userLogin } from "../../store/actions/login.jsx";
 
 const Login = () => {
-  const [loginMessage, setLoginMessage] = React.useState(true);
+  const [loginMessage, setLoginMessage] = React.useState(false);
+
+  const baseUrl = window.location.origin;
 
   const {
     register,
@@ -17,10 +20,14 @@ const Login = () => {
     pattern,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-  };
 
+  const email = watch("E-mail");
+
+  const onSubmit = (data) => {
+    // console.log(data);
+    userLogin({ email, baseUrl });
+    setLoginMessage(true);
+  };
   return (
     <div>
       {loginMessage ? (

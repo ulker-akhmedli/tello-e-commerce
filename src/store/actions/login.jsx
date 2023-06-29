@@ -9,11 +9,11 @@ const headers = {
 
 export const userLogin = async ({ email, baseUrl }) => {
   const url = new URL("https://api.chec.io/v1/customers/email-token");
-  let body = {
-    email: email,
-    base_url: `${baseUrl}/create-token`,
-  };
   try {
+    let body = {
+      email: email,
+      base_url: `${baseUrl}/create-token`,
+    };
     const { data: response } = await axios.post(url, body, { headers });
     return response.data;
   } catch (err) {
@@ -38,3 +38,5 @@ export const userRegister = async ({ firstname, lastname, email, phone }) => {
     return err.message;
   }
 };
+
+

@@ -11,7 +11,7 @@ import Basket from "./pages/Basket/Basket";
 import Profile from "./pages/Profile/Profile";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Error from "./pages/Error/Error";
-import LoginMessage from "./pages/Login/LoginMessage/LoginMessage";
+import ExchangeToken from "./pages/ExchangeToken/ExchangeToken";
 
 const App = () => {
   return (
@@ -28,6 +28,7 @@ const App = () => {
           <Route path="/basket" element={<Basket />} />
           <Route path="/details/:id" element={<ProductDetail />} />
           <Route path="/error" element={<Error />} />
+          <Route path="/create-token/:token" element={<ExchangeToken />} />
         </Routes>
       </div>
       <Footer />

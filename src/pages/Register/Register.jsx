@@ -7,8 +7,11 @@ import Button from "../../components/Button/Button";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+// import { userRegister } from "../../store/actions/login";
 
 const Register = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -16,7 +19,18 @@ const Register = () => {
     pattern,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  // const name = watch("Ad, Soyad");
+  // const email=watch("E-mail")
+  // const number=watch()
+
+  const onSubmit = (data) => {
+    navigate("/login");
+    console.log(data);
+    // if (!errors) {
+    //   navigate("/login");
+    //   console.log(data);
+    // }
+  };
   const [value, setValue] = useState();
   return (
     <div className="container register">
@@ -32,7 +46,7 @@ const Register = () => {
             register={register}
             pattern={pattern}
             errors={errors}
-            label={"Ad"}
+            label={"Ad Soyad"}
             validation={{
               pattern: {
                 value: /^[a-zA-Z]+ [a-zA-Z]+$/,
@@ -54,7 +68,7 @@ const Register = () => {
             }}
           />
           <PhoneInput
-            placeholder="00-000-00-00"
+            placeholder="00-000-0000"
             value={value}
             onChange={setValue}
             name={"Mobil nömrə"}
