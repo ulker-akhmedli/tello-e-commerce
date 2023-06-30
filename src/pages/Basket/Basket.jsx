@@ -4,7 +4,7 @@ import Amount from "./Amount/Amount";
 import Main from "./Main/Main";
 import { getCard } from "../../store/actions/card";
 import EmptyBasket from "./EmptyBasket/EmptyBasket";
-import Loading from "../../components/Loading/LoadingSpinner";
+import LoadingSpinner from "../../components/Loading/LoadingSpinner";
 
 const Basket = () => {
   const [card, setCards] = useState({});
@@ -14,7 +14,7 @@ const Basket = () => {
   }, []);
   // console.log(card);
   if (loading) {
-    <Loading />;
+    return <LoadingSpinner />;
   }
   if (!loading && card.total_items === 0) {
     return <EmptyBasket />;

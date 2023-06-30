@@ -3,12 +3,20 @@ import "./Main.scss";
 import AZN from "../../../assets/azn.svg";
 import Cart from "../../../assets/cart.svg";
 import { commerce } from "../../../commerce";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Main = ({ name, price, id, variant_groups }) => {
+  const notifyMe = () => {
+    toast.success("Added to your cart!");
+    toast.error("Error!", {
+      position: "top-right",
+    });
+  };
   const color = variant_groups?.find((el) => el.name == "color");
   const storage = variant_groups?.find((el) => el.name == "storage");
-
   const [quantity, setQuantity] = useState(1);
+
   const handleDecrement = () => {
     if (quantity > 1) {
       setQuantity((prev) => prev - 1);
@@ -20,7 +28,10 @@ const Main = ({ name, price, id, variant_groups }) => {
     }
   };
   async function addToBasket() {
-    commerce.cart.add({ id }, 1).then((response) => console.log(response));
+    commerce.cart.add({ id }, 1).then((response) => {
+      console.log(response);
+      notifyMe();
+    });
   }
   return (
     <div className="main-info">
@@ -74,6 +85,7 @@ const Main = ({ name, price, id, variant_groups }) => {
         Səbətə at
         <img src={Cart} alt="basket" />
       </button>
+      <ToastContainer />
     </div>
   );
 };
