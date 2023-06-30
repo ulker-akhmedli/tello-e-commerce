@@ -1,7 +1,7 @@
 import React from "react";
 import "./EmptyBasket.scss";
 import ShoppingCart from "../../../assets/shopping-cart.svg";
-import Button from "../../Login/Form/Button/Button";
+import Button from "../../../components/Button/Button";
 import { Link } from "react-router-dom";
 
 const EmptyBasket = () => {

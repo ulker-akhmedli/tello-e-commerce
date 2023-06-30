@@ -8,7 +8,7 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-// import { userRegister } from "../../store/actions/login";
+import { userRegister } from "../../store/actions/login";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -19,9 +19,9 @@ const Register = () => {
     pattern,
     formState: { errors },
   } = useForm();
-  // const name = watch("Ad, Soyad");
-  // const email=watch("E-mail")
-  // const number=watch()
+
+  const name = watch("Ad, Soyad");
+  const email = watch("E-mail");
 
   const onSubmit = (data) => {
     navigate("/login");
@@ -31,6 +31,7 @@ const Register = () => {
     //   console.log(data);
     // }
   };
+
   const [value, setValue] = useState();
   return (
     <div className="container register">

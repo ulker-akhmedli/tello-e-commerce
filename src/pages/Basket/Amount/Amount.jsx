@@ -2,7 +2,7 @@ import React from "react";
 import "./Amount.scss";
 import AZN from "../../../assets/azn.svg";
 
-const Amount = () => {
+const Amount = ({ card }) => {
   return (
     <div className="amount ">
       <h2>Ümumi</h2>
@@ -10,7 +10,7 @@ const Amount = () => {
         <li>
           Məbləğ
           <span>
-            66.50 <img src={AZN} alt="AZN" />
+            {card.subtotal?.raw} <img src={AZN} alt="AZN" />
           </span>
         </li>
         <li>
@@ -36,7 +36,7 @@ const Amount = () => {
       <div className="total">
         <span>Cəmi</span>
         <span>
-          66.50
+          {card.subtotal?.raw}
           <img src={AZN} alt="AZN" />
         </span>
       </div>

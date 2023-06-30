@@ -1,48 +1,89 @@
 import React, { useEffect, useState } from "react";
 import "./Main.scss";
-import Iphone from "../../../assets/iphone11.jpg";
 import AZN from "../../../assets/azn.svg";
 import Delete from "../../../assets/delete.svg";
+import { useNavigate } from "react-router-dom";
+import { updateCard, removeCard } from "../../../store/actions/card";
 
-import { useParams } from "react-router-dom";
-
-const Main = () => {
-  const [quantity, setQuantity] = useState(1);
-
+const Main = ({
+  name,
+  price,
+  image,
+  quantity,
+  item_id,
+  product_id,
+  setLoading,
+  setCards,
+}) => {
+  const [productQuantity, setQuantity] = useState(quantity);
+  const navigate = useNavigate();
   const handleDecrement = () => {
-    if (quantity > 1) {
+    if (productQuantity > 1) {
       setQuantity((prev) => prev - 1);
+      updateCard({
+        setLoading,
+        setCards,
+        id: item_id,
+        quantity: productQuantity - 1,
+      });
+    } else {
+      removeCard({ setLoading, setCards, id: item_id });
     }
   };
-  const handleIncrement = () => {
-    if (quantity < 5) {
-      setQuantity((prev) => prev + 1);
-    }
-  };
+  
+  // console.log(productQuantity);
+  // console.log(quantity);
 
+
+  const handleIncrement = () => {
+    if (productQuantity < 10) {
+      setQuantity((prev) => prev + 1);
+      updateCard({
+        setLoading,
+        setCards,
+        id: item_id,
+        quantity: productQuantity + 1,
+      });
+    }
+  };
+  const deleteFromCard = () => {
+    removeCard({
+      setLoading,
+      setCards,
+      id: item_id,
+    });
+  };
+  const goToProduct = () => {
+    navigate(`/details/${product_id}`);
+  };
   return (
     <div className="mainCart">
-      <div className="cart-photo">
-        <img src={Iphone} alt="phone" />
+      <div onClick={goToProduct} className="cart-photo">
+        <img src={image} alt="phone" />
       </div>
       <div className="content">
-        <span className="name">iPhone 12, 64 GB, Bənövşəyi</span>
+        <span className="name">{name}</span>
         <div className="cart-detail">
           <div className="card-color">
             <span className="color">Rəng:</span>
             <span>Bənövşəyi</span>
           </div>
           <span className="price">
-            240 <img src={AZN} alt="AZN" />
+            {price} <img src={AZN} alt="AZN" />
           </span>
         </div>
       </div>
       <div className="numberCarts">
         <button onClick={handleDecrement}>-</button>
-        <span>{quantity}</span>
+        <span>{productQuantity}</span>
         <button onClick={handleIncrement}>+</button>
       </div>
-      <img className="deleteIcon" src={Delete} alt="delete" />
+      <img
+        onClick={deleteFromCard}
+        className="deleteIcon"
+        src={Delete}
+        alt="delete"
+      />
     </div>
   );
 };

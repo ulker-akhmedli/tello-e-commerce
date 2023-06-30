@@ -22,11 +22,10 @@ export const userLogin = async ({ email, baseUrl }) => {
   }
 };
 
-export const userRegister = async ({ firstname, lastname, email, phone }) => {
+export const userRegister = async ({ name, email, phone }) => {
   const url = new URL("https://api.chec.io/v1/customers");
   let body = {
-    firstname: firstname,
-    lastname: lastname,
+    name: name,
     email: email,
     phone: phone,
   };
@@ -39,4 +38,48 @@ export const userRegister = async ({ firstname, lastname, email, phone }) => {
   }
 };
 
+export const getToken = async ({ token }) => {
+  const url = new URL("https://api.chec.io/v1/customers/exchange-token");
+  try {
+    let body = {
+      token: token,
+    };
+    const { data: response } = await axios.post(url, body, { headers });
+    return response.data;
+  } catch (err) {
+    console.log(err);
+    return err.message;
+  }
+};
 
+// export const getUser = async ({ id }) => {
+//   const url = new URL(`https://api.chec.io/v1/customers/${id}`);
+//   try {
+//     const { data: response } = await axios.get(url, { headers });
+//     return response.data;
+//   } catch (err) {
+//     console.log(err);
+//     return err.message;
+//   }
+// };
+
+export const getUser = async ({ setLoading, setUser }) => {
+  try {
+    setLoading(false);
+    const response = await commerce.customer.about();
+    setUser(response);
+    setLoading(true);
+    return response;
+  } catch (err) {
+    return err.message;
+  }
+};
+
+export const logOutUser = async () => {
+  try {
+    const response = await commerce.customer.logout();
+    return response;
+  } catch (err) {
+    return err.message;
+  }
+};

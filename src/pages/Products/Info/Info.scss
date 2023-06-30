@@ -22,11 +22,12 @@
     align-items: center;
     padding: 10px 0 10px 16px;
     cursor: pointer;
+    position: relative;
     .sort-dropdown {
       position: absolute;
-      left: 81%;
+      left: 0%;
       width: 175px;
-      top: 37%;
+      top: 105%;
       background-color: #fff;
       border: 1px solid $clr-gray4;
       z-index: 100;
@@ -34,7 +35,7 @@
       .sort-option {
         padding: 8px 16px;
         cursor: pointer;
-        position: relative;
+        // position: relative;
         transition: all 0.1s ease;
         white-space: nowrap;
         &:hover {
@@ -44,11 +45,10 @@
     }
   }
 }
-@media (max-width:576px) {
-    .info{
-        .sort{
-            display: none;
-        }
+@media (max-width: 576px) {
+  .info {
+    .sort {
+      display: none;
     }
-    
+  }
 }

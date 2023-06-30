@@ -9,7 +9,7 @@ const LoadingSpinner = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCount((prevCount) => prevCount + 1);
-    }, 6000);
+    }, 9000);
     return () => {
       clearInterval(interval);
     };
