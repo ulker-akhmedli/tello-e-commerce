@@ -7,14 +7,14 @@ const initialState = {
 export const cartReducer = createSlice({
   name: "counter",
   initialState,
-  // reducers: {
-  //   increment: (state) => {
-  //     state.value += 1;
-  //   },
-  //   decrement: (state) => {
-  //     state.value -= 1;
-  //   },
-  // },
+  reducers: {
+    increment: (state) => {
+      state.value += 1;
+    },
+    decrement: (state) => {
+      state.value -= 1;
+    },
+  },
 });
 
 export const { increment, decrement } = cartReducer.actions;
