@@ -15,7 +15,7 @@ export const updateCard = async ({ setLoading, setCards, params }) => {
   try {
     setLoading(true);
     const response = await commerce.cart.update(params.id, {
-      quantity: quantity,
+      quantity: params.quantity,
     });
     setCards(response);
     setLoading(false);

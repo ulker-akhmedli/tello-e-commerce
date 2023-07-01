@@ -9,9 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 const Main = ({ name, price, id, variant_groups }) => {
   const notifyMe = () => {
     toast.success("Added to your cart!");
-    toast.error("Error!", {
-      position: "top-right",
-    });
+    // toast.error("Error!", {
+    //   position: "top-right",
+    // });
   };
   const color = variant_groups?.find((el) => el.name == "color");
   const storage = variant_groups?.find((el) => el.name == "storage");
@@ -28,7 +28,7 @@ const Main = ({ name, price, id, variant_groups }) => {
     }
   };
   async function addToBasket() {
-    commerce.cart.add({ id }, 1).then((response) => {
+    commerce.cart.add({ id }, quantity).then((response) => {
       console.log(response);
       notifyMe();
     });

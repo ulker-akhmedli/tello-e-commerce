@@ -30,10 +30,9 @@ const Main = ({
       removeCard({ setLoading, setCards, id: item_id });
     }
   };
-  
+
   // console.log(productQuantity);
   // console.log(quantity);
-
 
   const handleIncrement = () => {
     if (productQuantity < 10) {
