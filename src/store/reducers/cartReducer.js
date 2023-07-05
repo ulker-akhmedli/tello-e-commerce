@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+// import { getCard,removeCard,updateCard,getCard } from "../actions/card";
 
 const initialState = {
-  value: 0,
+  // cart: [],
+  // loading: false,
+  // errors: null,
 };
 
 export const cartReducer = createSlice({

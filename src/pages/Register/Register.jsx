@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Register.scss";
 import WithSocial from "../Login/WithSocial/WithSocial";
-import Input from "../../components/Input/Input";
+// import Input from "../../components/Input/Input";
 import LoginImage from "../Login/LoginImage/LoginImage";
 import Button from "../../components/Button/Button";
 import "react-phone-number-input/style.css";
@@ -9,27 +9,31 @@ import PhoneInput from "react-phone-number-input";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { userRegister } from "../../store/actions/login";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+const schema = z.object({
+  firstname: z.string().min(3),
+  lastname: z.string().min(4),
+  email: z.string().email(),
+});
 
 const Register = () => {
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    watch,
-    pattern,
     formState: { errors },
-  } = useForm();
-
-  const name = watch("Ad, Soyad");
-  const email = watch("E-mail");
-
-  const onSubmit = (data) => {
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
+  const onSubmit = ({ firstname, lastname, email }) => {
     navigate("/login");
-    console.log(data);
-    // if (!errors) {
-    //   navigate("/login");
-    //   console.log(data);
-    // }
+    userRegister({
+      firstname,
+      lastname,
+      email,
+    });
   };
 
   const [value, setValue] = useState();
@@ -40,34 +44,26 @@ const Register = () => {
         <WithSocial />
         <span className="or">və ya</span>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            placeholder={"Ad və soyadınızı daxil edin"}
-            type={"text"}
-            name={"Ad, Soyad"}
-            register={register}
-            pattern={pattern}
-            errors={errors}
-            label={"Ad Soyad"}
-            validation={{
-              pattern: {
-                value: /^[a-zA-Z]+ [a-zA-Z]+$/,
-              },
-            }}
-          />
-          <Input
-            placeholder={"nümunə@gmail.com"}
-            type={"email"}
-            name={"E-mail"}
-            register={register}
-            pattern={pattern}
-            errors={errors}
-            label={"e-mail"}
-            validation={{
-              pattern: {
-                value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-              },
-            }}
-          />
+          <div className="inputGroup">
+            <label htmlFor="">Ad</label>
+            <input
+              type="text"
+              {...register("firstname")}
+              placeholder="Adınızı daxil edin"
+            />
+            <label htmlFor="">Soyad</label>
+            <input
+              type="text"
+              {...register("lastname")}
+              placeholder="Soyadınızı daxil edin"
+            />
+            <label htmlFor="">E-mail</label>
+            <input
+              type="text"
+              {...register("email")}
+              placeholder="nümunə@gmail.com"
+            />
+          </div>
           <PhoneInput
             placeholder="00-000-0000"
             value={value}
@@ -75,6 +71,7 @@ const Register = () => {
             name={"Mobil nömrə"}
             defaultCountry="AZ"
           />
+
           <Button btn={"Qeydiyyat"} />
         </form>
       </div>
@@ -88,3 +85,45 @@ const Register = () => {
 };
 
 export default Register;
+
+{
+  /* <Input
+            placeholder={"Ad və soyadınızı daxil edin"}
+            type={"text"}
+            name={"firstname"}
+            register={register("firstname")}
+            // pattern={pattern}
+            errors={errors.firstname}
+            label={"Ad Soyad"}
+            validation={{
+              pattern: {
+                value: /^[a-zA-Z]+ [a-zA-Z]+$/,
+              },
+            }}
+          /> */
+}
+{
+  /* <Input
+            placeholder={"nümunə@gmail.com"}
+            type={"email"}
+            name={"email"}
+            register={register("email")}
+            // pattern={pattern}
+            errors={errors.email}
+            label={"e-mail"}
+            // validation={{
+            //   pattern: {
+            //     value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+            //   },
+            // }}
+          /> */
+}
+{
+  /* <PhoneInput
+            placeholder="00-000-0000"
+            value={value}
+            onChange={setValue}
+            name={"Mobil nömrə"}
+            defaultCountry="AZ"
+          /> */
+}

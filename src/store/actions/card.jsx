@@ -24,7 +24,6 @@ export const updateCard = async ({ setLoading, setCards, params }) => {
     return err.message;
   }
 };
-
 export const removeCard = async ({ setLoading, setCards, params }) => {
   try {
     setLoading(true);

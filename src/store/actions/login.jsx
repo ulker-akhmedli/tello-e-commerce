@@ -1,8 +1,7 @@
-import { token } from "../../commerce";
 import axios from "axios";
 
 const headers = {
-  "X-Authorization": token,
+  "X-Authorization": "sk_47165c63f179ac44fc4e178dca07476d285a5e5c7cf3e",
   Accept: "application/json",
   "Content-Type": "application/json",
 };
@@ -14,23 +13,23 @@ export const userLogin = async ({ email, baseUrl }) => {
       email: email,
       base_url: `${baseUrl}/create-token`,
     };
-    const { data: response } = await axios.post(url, body, { headers });
+    const response = await axios.post(url, body, { headers });
     return response.data;
   } catch (err) {
     console.log(err);
     return err.message;
   }
 };
-
-export const userRegister = async ({ name, email, phone }) => {
+export const userRegister = async ({ firstname, lastname, email }) => {
   const url = new URL("https://api.chec.io/v1/customers");
   let body = {
-    name: name,
-    email: email,
-    phone: phone,
+    firstname,
+    lastname,
+    email,
   };
+  console.log(body);
   try {
-    const { data: response } = await axios.post(url, body, { headers });
+    const response = await axios.post(url, body, { headers });
     return response.data;
   } catch (err) {
     console.log(err);
@@ -38,42 +37,21 @@ export const userRegister = async ({ name, email, phone }) => {
   }
 };
 
-export const getToken = async ({ token }) => {
-  const url = new URL("https://api.chec.io/v1/customers/exchange-token");
-  try {
-    let body = {
-      token: token,
-    };
-    const { data: response } = await axios.post(url, body, { headers });
-    return response.data;
-  } catch (err) {
-    console.log(err);
-    return err.message;
-  }
-};
-
-// export const getUser = async ({ id }) => {
-//   const url = new URL(`https://api.chec.io/v1/customers/${id}`);
+// export const getToken = async ({ token }) => {
+//   const url = new URL("https://api.chec.io/v1/customers/exchange-token");
 //   try {
-//     const { data: response } = await axios.get(url, { headers });
+//     let body = {
+//       token: token,
+//     };
+//     const response = await axios.post(url, JSON.stringify(body), {
+//       headers,
+//     });
 //     return response.data;
 //   } catch (err) {
 //     console.log(err);
 //     return err.message;
 //   }
 // };
-
-export const getUser = async ({ setLoading, setUser }) => {
-  try {
-    setLoading(false);
-    const response = await commerce.customer.about();
-    setUser(response);
-    setLoading(true);
-    return response;
-  } catch (err) {
-    return err.message;
-  }
-};
 
 export const logOutUser = async () => {
   try {

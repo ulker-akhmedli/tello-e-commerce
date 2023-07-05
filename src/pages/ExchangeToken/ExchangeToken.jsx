@@ -2,17 +2,15 @@ import React from "react";
 import LoadingSpinner from "../../components/Loading/LoadingSpinner";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
-
-import { getToken } from "../../store/actions/login";
+import { commerce } from "../../commerce";
+// import { getToken } from "../../store/actions/login";
 
 const ExchangeToken = () => {
   const navigate = useNavigate();
   const { token } = useParams();
-
   useEffect(() => {
-    getToken({ token });
-    navigate("/");
-  }, [token, navigate]);
+    commerce.customer.getToken(token).then(() => navigate("/"));
+  }, [token]);
 
   return (
     <div>

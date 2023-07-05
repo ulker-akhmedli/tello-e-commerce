@@ -88,6 +88,9 @@ header {
       display: flex;
       gap: 35px;
       align-items: center;
+      a {
+        color: $clr-gray2;
+      }
       img {
         cursor: pointer;
       }

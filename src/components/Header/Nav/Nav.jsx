@@ -3,7 +3,7 @@ import "./Nav.scss";
 import { Link } from "react-router-dom";
 import DropDown from "../DropDown/DropDown";
 
-const Nav = ({ loading, categories }) => {
+const Nav = ({ categories }) => {
   return (
     <nav>
       <ul className="navbar">

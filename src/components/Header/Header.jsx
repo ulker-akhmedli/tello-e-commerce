@@ -12,8 +12,7 @@ import MobileNav from "./MobileNav/MobileNav";
 import { Link } from "react-router-dom";
 import { getCategoriesName } from "../../store/actions/categories";
 import { useParams } from "react-router-dom";
-// import { commerce } from "../../commerce";
-// import { getUser } from "../../store/actions/login";
+import { commerce } from "../../commerce";
 const Header = () => {
   const [inputValue, setInputValue] = useState("");
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -21,19 +20,19 @@ const Header = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(null);
   const { slug } = useParams();
-  // const [user, setUser] = useState([]);
-  // const loggedIn = commerce.customer.isLoggedIn();
-
+  const isLogin = commerce.customer.isLoggedIn();
+  // console.log(isLogin);
+  const [user, setUser] = React.useState({});
   const params = {
     depth: "2",
   };
+  React.useEffect(() => {
+    isLogin && commerce.customer.about().then((customer) => setUser(customer));
+  }, [isLogin]);
 
   React.useEffect(() => {
     getCategoriesName(setLoading, setCategories, params);
-    // loggedIn && getUser({ setLoading, setUser });
   }, [slug, params]);
-
-  // console.log(loggedIn);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -114,27 +113,26 @@ const Header = () => {
         </form>
 
         <div className="shopping">
-          {/* {!loading && user.firstname ? (
-            <Link>
-              {!loading && user && (
-                <h6 className="user-firstname">{user.firstname}</h6>
-              )}
-            </Link>
-          ) : (
-            <Link to={"/login"}>
-              <img src={login} alt="login" />
-            </Link>
-          )} */}
           <Link to={"/login"}>
-            <img src={login} alt="login" />
+            {user.firstname || <img src={login} alt="login" />}
           </Link>
-          <Link to={"/profile"}>
+          {/* { user.firstname ? (
+          <Link to={"/user-profile/user-info"} className="user">
+            {user && (
+              <h6 className="user-firstname">{user.firstname}</h6>
+            )}
+          </Link>
+        ) : (
+          <Link to={"/login"}>
+           <img src={login} alt="login" />
+          </Link>
+        )} */}
+          <Link to={"profile"}>
             <img src={like} alt="heart" />
           </Link>
           <Link to={"/basket"}>
             <img src={basket} alt="basket" />
           </Link>
-
           <div className="circle">
             <span>0</span>
           </div>

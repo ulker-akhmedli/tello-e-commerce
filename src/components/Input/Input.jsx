@@ -1,16 +1,12 @@
 import React from "react";
 import "./Input.scss";
 
-const Form = ({ errors, register, name, placeholder, label, validation }) => {
+const Form = ({ errors, register, name, placeholder, label }) => {
   return (
     <div className="inputGroup">
-      <label htmlFor="">{name}</label>
-      <input
-        {...register(name, validation)}
-        placeholder={placeholder}
-        
-      />
-      {errors?.[name] && <span>Yanlış {label}</span>}
+      <label htmlFor={name}>{label}</label>
+      <input {...register} placeholder={placeholder} />
+      {errors && <span>Yanlış {label}</span>}
     </div>
   );
 };

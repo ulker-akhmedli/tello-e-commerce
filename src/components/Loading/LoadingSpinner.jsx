@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./LoadingSpinner.scss"
+import "./LoadingSpinner.scss";
 import Spinner from "../../assets/laoding-spinner.gif";
 
 const LoadingSpinner = () => {
