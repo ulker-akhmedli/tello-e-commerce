@@ -14,27 +14,28 @@ const ProductDetail = () => {
 
   const [product, setProduct] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
+  const [currentVariant, setCurrentVariant] = React.useState(null);
   useEffect(() => {
-    getProductById(setLoading, setProduct, id);
+    getProductById(setLoading, setProduct, setCurrentVariant, id);
   }, [id]);
-
   if (loading && !product) {
     return <LoadingSpinner />;
   }
   return (
     <div className="container">
-      <Navigation
-        name={product?.data?.name}
-        id={product?.data?.id}
-        product={product}
-      />
+      <Navigation name={product?.name} id={product?.id} product={product} />
       <div className="details container ">
-        <SliderSelect images={product?.data?.assets} />
+        <SliderSelect
+          images={product?.assets}
+          currentVariant={currentVariant}
+        />
         <Main
-          name={product?.data?.name}
-          price={product?.data?.price.raw}
-          id={product?.data?.id}
-          variant_groups={product?.data?.variant_groups}
+          name={product?.name}
+          id={product?.id}
+          price={currentVariant?.storage?.price?.raw || product?.price.raw}
+          variant_groups={product?.variant_groups}
+          currentVariant={currentVariant}
+          setCurrentVariant={setCurrentVariant}
         />
       </div>
       <Specifications />

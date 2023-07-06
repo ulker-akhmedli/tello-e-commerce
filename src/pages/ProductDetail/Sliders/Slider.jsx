@@ -4,7 +4,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Slider.scss";
 
-const SliderSelect = ({ images }) => {
+const SliderSelect = ({ images, currentVariant }) => {
+  if (currentVariant?.color?.assets) {
+    images = images.filter((el) => {
+      return currentVariant?.color?.assets.includes(el.id);
+    });
+  }
   const settings = {
     customPaging: function (i) {
       return (

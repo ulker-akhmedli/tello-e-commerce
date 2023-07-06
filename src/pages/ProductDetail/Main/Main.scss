@@ -23,6 +23,7 @@
     border-bottom: 1px solid #f2f2f2;
     gap: 16px;
     padding-bottom: 12px;
+    text-transform: capitalize;
     h1 {
       font-weight: 500;
       font-size: 20px;
@@ -84,6 +85,9 @@
           &:hover {
             border: 2px solid $clr-main;
           }
+          &.active {
+            border: 2px solid $clr-main;
+          }
         }
       }
     }
@@ -94,7 +98,7 @@
       .memorys {
         display: flex;
         gap: 16px;
-        div {
+        .option {
           background: $clr-gray6;
           border-radius: 8px;
           padding: 8px 16px;
@@ -103,7 +107,7 @@
             background-color: $clr-gray3;
           }
           &.active {
-            background-color: #4f4f4f;
+            background-color: $clr-gray3;
           }
         }
       }
@@ -114,24 +118,19 @@
   .main-info {
     .title {
       text-align: center;
-     
     }
     .numberCarts {
       justify-content: center;
       margin-bottom: 20px;
       padding: 18px 0;
-      
     }
     .main-details {
       padding: 18px 0;
       .main-color {
         flex-direction: column;
-       
       }
       .memory {
         flex-direction: column;
-
-        
       }
     }
   }

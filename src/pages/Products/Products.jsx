@@ -35,7 +35,7 @@ const Products = () => {
   return (
     <div className="products container ">
       <div className="left">
-        <Navigation products={products} />
+        <Navigation />
         <Filter />
       </div>
       <div className="mobile">
@@ -66,7 +66,6 @@ const Products = () => {
           <Pagination
             data={products?.meta?.pagination}
             currentPage={currentPage}
-            // setCurrentPage={setCurrentPage}
             searchParams={searchParams}
             setSearchParams={setSearchParams}
           />

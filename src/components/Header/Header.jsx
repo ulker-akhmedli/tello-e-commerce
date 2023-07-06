@@ -1,6 +1,5 @@
 import React from "react";
 import "./Header.scss";
-import lupa from "../../assets/search.svg";
 import login from "../../assets/login.svg";
 import like from "../../assets/like.svg";
 import basket from "../../assets/basket.svg";
@@ -13,10 +12,8 @@ import { Link } from "react-router-dom";
 import { getCategoriesName } from "../../store/actions/categories";
 import { useParams } from "react-router-dom";
 import { commerce } from "../../commerce";
+import Search from "./Search/Search";
 const Header = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [lastSearch, setLastSearch] = useState("");
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(null);
   const { slug } = useParams();
@@ -34,27 +31,26 @@ const Header = () => {
     getCategoriesName(setLoading, setCategories, params);
   }, [slug, params]);
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
-
-  const handleInputClick = () => {
-    setDropdownVisible(true);
-  };
-  const handleOutsideClick = () => {
-    setDropdownVisible(false);
-  };
-
-  const handleDropdownItemClick = (item) => {
-    setInputValue(item);
-    setLastSearch(item);
-    setDropdownVisible(false);
-  };
-  const handleClearClick = () => {
-    setInputValue("");
-    setLastSearch("");
-  };
-
+  let navBar;
+  if (categories.length > 0 && !loading) {
+    navBar = categories.map((el) => {
+      return {
+        id: el.id,
+        name: el.name,
+        slug: el.slug,
+        children: el.children.map((el) => {
+          return {
+            id: el.id,
+            name: el.name,
+            slug: el.slug,
+          };
+        }),
+      };
+    });
+    localStorage.setItem("categories", JSON.stringify(navBar));
+  } else if (JSON.parse(localStorage.getItem("categories"))?.length > 0) {
+    navBar = JSON.parse(localStorage.getItem("categories"));
+  }
   const [mobileNavbar, setMobileNavbar] = useState(false);
   const setDropdownOpen = () => {
     setMobileNavbar(true);
@@ -70,66 +66,22 @@ const Header = () => {
           onClick={setDropdownOpen}
         />
         <Logo />
-        <form>
-          <img src={lupa} alt="search" />
-          <input
-            type="text"
-            placeholder="Axtarış..."
-            value={inputValue}
-            onChange={handleInputChange}
-            onClick={handleInputClick}
-          />
-          {dropdownVisible && (
-            <div className="inputDropdown">
-              <div className="last-search">
-                Son axtarışlar
-                <span onClick={handleClearClick}>Təmizlə</span>
-              </div>
-              <div className="search">
-                <button onClick={() => handleDropdownItemClick("Option 1")}>
-                  Option 1
-                </button>
-                <button onClick={() => handleDropdownItemClick("Option 2")}>
-                  Option 2
-                </button>
-                <button onClick={() => handleDropdownItemClick("Option 3")}>
-                  Option 3
-                </button>
-              </div>
-            </div>
-          )}
-          {dropdownVisible && (
-            <div
-              style={{
-                position: "fixed",
-                top: 0,
-                left: 0,
-                bottom: 0,
-                right: 0,
-              }}
-              onClick={handleOutsideClick}
-            />
-          )}
-        </form>
+        <Search />
 
         <div className="shopping">
-          <Link to={"/login"}>
+          {/* <Link to={"/login"}>
             {user.firstname || <img src={login} alt="login" />}
-          </Link>
-          {/* { user.firstname ? (
-          <Link to={"/user-profile/user-info"} className="user">
-            {user && (
-              <h6 className="user-firstname">{user.firstname}</h6>
-            )}
-          </Link>
-        ) : (
-          <Link to={"/login"}>
-           <img src={login} alt="login" />
-          </Link>
-        )} */}
-          <Link to={"profile"}>
-            <img src={like} alt="heart" />
-          </Link>
+          </Link> */}
+          {user.firstname ? (
+            <Link to={"/user-profile/user-info"} className="user">
+              {user && <h3 className="user-Name">{user.firstname}</h3>}
+            </Link>
+          ) : (
+            <Link to={"/login"}>
+              <img src={login} alt="login" />
+            </Link>
+          )}
+
           <Link to={"/basket"}>
             <img src={basket} alt="basket" />
           </Link>
@@ -138,7 +90,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <Nav categories={categories} loading={loading} />
+      <Nav categories={categories} loading={loading} navBar={navBar} />
       <MobileNav
         categories={categories}
         loading={loading}

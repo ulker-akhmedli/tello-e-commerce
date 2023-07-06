@@ -4,6 +4,7 @@ export const getCard = async ({ setLoading, setCards }) => {
   try {
     setLoading(true);
     const response = await commerce.cart.retrieve();
+    console.log(response);
     setCards(response);
     setLoading(false);
     return response;
@@ -11,11 +12,11 @@ export const getCard = async ({ setLoading, setCards }) => {
     return err.message;
   }
 };
-export const updateCard = async ({ setLoading, setCards, params }) => {
+export const updateCard = async (setLoading, setCards, { id, quantity }) => {
   try {
     setLoading(true);
-    const response = await commerce.cart.update(params.id, {
-      quantity: params.quantity,
+    const response = await commerce.cart.update(id, {
+      quantity,
     });
     setCards(response);
     setLoading(false);
@@ -24,10 +25,10 @@ export const updateCard = async ({ setLoading, setCards, params }) => {
     return err.message;
   }
 };
-export const removeCard = async ({ setLoading, setCards, params }) => {
+export const removeCard = async (setLoading, setCards, id) => {
   try {
     setLoading(true);
-    const response = await commerce.cart.remove(params.id);
+    const response = await commerce.cart.remove(id);
     setCards(response);
     setLoading(false);
     return response;

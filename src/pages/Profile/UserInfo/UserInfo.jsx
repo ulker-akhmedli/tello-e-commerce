@@ -4,16 +4,32 @@ import Input from "../../../components/Input/Input";
 import Button from "../../../components/Button/Button";
 import Edit from "../../../assets/edit.svg";
 import { useForm } from "react-hook-form";
+import { updateUser } from "../../../store/actions/login";
 // import PhoneInput from "react-phone-number-input";
-
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { commerce } from "../../../commerce";
+const schema = z.object({
+  firstname: z.string().min(3),
+  lastname: z.string().min(4),
+  email: z.string().email(),
+});
 const UserInfo = () => {
   const {
     register,
     handleSubmit,
     pattern,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+  } = useForm({ resolver: zodResolver(schema) });
+  const [user, setUser] = React.useState({});
+  React.useEffect(() => {
+    commerce.customer.about().then((customer) => setUser(customer));
+  }, []);
+
+  const onSubmit = (data) => {
+    updateUser(data, user.id);
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="userInfo">
       <h1>Şəxsi məlumatlar</h1>
@@ -34,14 +50,14 @@ const UserInfo = () => {
             placeholder="John.Doe@gmail.com"
           />
         </div>
-        <div className="inputGroup">
+        {/* <div className="inputGroup">
           <label htmlFor="">Mobil nömrə</label>
           <input
             type="text"
             {...register("email")}
             placeholder="000 - 00 - 00"
           />
-        </div>
+        </div> */}
 
         <Button img={Edit} btn={"Məlumatları yenilə"} />
       </div>

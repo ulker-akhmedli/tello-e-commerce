@@ -53,8 +53,14 @@ const Login = () => {
               /> */}
               <div className="inputGroup">
                 <label htmlFor="">E-mail</label>
-                <input type="text" {...register("email")} placeholder="nümunə@gmail.com" />
+                <input
+                  type="text"
+                  {...register("email")}
+                  placeholder="nümunə@gmail.com"
+                />
+                {errors.email && <span>Yanlış Ad</span>}
               </div>
+
               <Button btn={"Daxil ol"} />
             </form>
           </div>

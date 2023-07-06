@@ -5,14 +5,13 @@ import Main from "./Main/Main";
 import { getCard } from "../../store/actions/card";
 import EmptyBasket from "./EmptyBasket/EmptyBasket";
 import LoadingSpinner from "../../components/Loading/LoadingSpinner";
-
+import { commerce } from "../../commerce";
 const Basket = () => {
   const [card, setCards] = useState({});
   const [loading, setLoading] = useState(null);
   useEffect(() => {
     getCard({ setLoading, setCards });
   }, []);
-  // console.log(card);
   if (loading) {
     return <LoadingSpinner />;
   }
@@ -42,6 +41,14 @@ const Basket = () => {
           })}
         </div>
         <Amount card={card} />
+        <button
+          className="empty-cart"
+          onClick={() => {
+            commerce.cart.empty().then(() => setCards({ total_items: 0 }));
+          }}
+        >
+          empty-cart
+        </button>
       </div>
     </div>
   );

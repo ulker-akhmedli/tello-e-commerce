@@ -14,43 +14,34 @@ const Main = ({
   product_id,
   setLoading,
   setCards,
+  options,
 }) => {
+  const colorName = options?.find((el) => (el.group_name = "color"));
   const [productQuantity, setQuantity] = useState(quantity);
   const navigate = useNavigate();
   const handleDecrement = () => {
     if (productQuantity > 1) {
       setQuantity((prev) => prev - 1);
-      updateCard({
-        setLoading,
-        setCards,
+      updateCard(setLoading, setCards, {
         id: item_id,
         quantity: productQuantity - 1,
       });
     } else {
-      removeCard({ setLoading, setCards, id: item_id });
+      removeCard(setLoading, setCards, item_id);
     }
   };
-
-  // console.log(productQuantity);
-  // console.log(quantity);
 
   const handleIncrement = () => {
     if (productQuantity < 10) {
       setQuantity((prev) => prev + 1);
-      updateCard({
-        setLoading,
-        setCards,
+      updateCard(setLoading, setCards, {
         id: item_id,
         quantity: productQuantity + 1,
       });
     }
   };
   const deleteFromCard = () => {
-    removeCard({
-      setLoading,
-      setCards,
-      id: item_id,
-    });
+    removeCard(setLoading, setCards, item_id);
   };
   const goToProduct = () => {
     navigate(`/details/${product_id}`);
@@ -63,10 +54,13 @@ const Main = ({
       <div className="content">
         <span className="name">{name}</span>
         <div className="cart-detail">
-          <div className="card-color">
-            <span className="color">Rəng:</span>
-            <span>Bənövşəyi</span>
-          </div>
+          {colorName && (
+            <div className="card-color">
+              <span className="color">Rəng:</span>
+              <span> {colorName.option_name}</span>
+            </div>
+          )}
+
           <span className="price">
             {price} <img src={AZN} alt="AZN" />
           </span>

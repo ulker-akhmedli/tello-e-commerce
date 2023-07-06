@@ -3,9 +3,10 @@ import "./Navigation.scss";
 import { useLocation, Link } from "react-router-dom";
 import Navigat from "../../assets/navigat.svg";
 
-const Navigation = ({ name, id, products }) => {
+const Navigation = () => {
   const { pathname } = useLocation();
   // console.log(location);
+
   return (
     <div className="navigation">
       <ul>
@@ -20,7 +21,6 @@ const Navigation = ({ name, id, products }) => {
             </li>
           );
         })}
-       
       </ul>
     </div>
   );

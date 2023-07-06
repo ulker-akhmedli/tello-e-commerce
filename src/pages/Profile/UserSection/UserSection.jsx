@@ -2,14 +2,15 @@ import React from "react";
 import "./UserSection.scss";
 import Profile from "../../../assets/profile.svg";
 import LogOut from "../../../assets/logout.svg";
-import { logOutUser } from "../../../store/actions/login";
 import { useNavigate } from "react-router-dom";
+import { commerce } from "../../../commerce";
 
 const UserSection = () => {
   const navigate = useNavigate();
 
   const logOut = () => {
-    logOutUser();
+    commerce.customer.logout();
+
     navigate("/");
   };
   return (

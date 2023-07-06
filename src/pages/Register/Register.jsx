@@ -51,18 +51,21 @@ const Register = () => {
               {...register("firstname")}
               placeholder="Adınızı daxil edin"
             />
+
             <label htmlFor="">Soyad</label>
             <input
               type="text"
               {...register("lastname")}
               placeholder="Soyadınızı daxil edin"
             />
+
             <label htmlFor="">E-mail</label>
             <input
               type="text"
               {...register("email")}
               placeholder="nümunə@gmail.com"
             />
+            {errors.email && <span>Yanlış email</span>}
           </div>
           <PhoneInput
             placeholder="00-000-0000"

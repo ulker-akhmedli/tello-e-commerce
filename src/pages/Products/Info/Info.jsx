@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Info.scss";
 import Sort from "../../../assets/sort.svg";
-import { commerce } from "../../../commerce";
 
 const Info = ({ loading, products }) => {
   const [sortDropDown, setSortDropDown] = useState(false);
@@ -9,7 +8,6 @@ const Info = ({ loading, products }) => {
   const setDropdownOpen = () => {
     setSortDropDown((prev) => !prev);
   };
- 
 
   return (
     <div className="info">
@@ -23,9 +21,7 @@ const Info = ({ loading, products }) => {
         <img src={Sort} alt="icon" />
         {sortDropDown && (
           <div className="sort-dropdown">
-            <div className="sort-option">
-              Azdan çoxa
-            </div>
+            <div className="sort-option">Azdan çoxa</div>
             <div className="sort-option">Çoxdan aza</div>
           </div>
         )}
