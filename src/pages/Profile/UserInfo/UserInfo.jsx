@@ -9,6 +9,8 @@ import { updateUser } from "../../../store/actions/login";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { commerce } from "../../../commerce";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const schema = z.object({
   firstname: z.string().min(3),
   lastname: z.string().min(4),
@@ -25,97 +27,61 @@ const UserInfo = () => {
   React.useEffect(() => {
     commerce.customer.about().then((customer) => setUser(customer));
   }, []);
+  const notifyMe = () => {
+    toast.success("Məlumat dəyişdirildi");
+  };
 
   const onSubmit = (data) => {
     updateUser(data, user.id);
+    notifyMe();
   };
-  console.log(user);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="userInfo">
       <h1>Şəxsi məlumatlar</h1>
       <div className="infos">
         <div className="inputGroup">
-          <label htmlFor="">Ad</label>
-          <input type="text" {...register("firstname")} placeholder="John" />
-        </div>
-        <div className="inputGroup">
-          <label htmlFor="">Soyad</label>
-          <input type="text" {...register("lastname")} placeholder="Doe" />
-        </div>
-        <div className="inputGroup">
-          <label htmlFor="">E-mail</label>
+          <label htmlFor="firstname">Ad</label>
           <input
+            defaultValue={user.firstname}
+            type="text"
+            {...register("firstname")}
+            placeholder="John"
+          />
+        </div>
+        <div className="inputGroup">
+          <label htmlFor="lastname">Soyad</label>
+          <input
+            defaultValue={user.lastname}
+            type="text"
+            {...register("lastname")}
+            placeholder="Doe"
+          />
+        </div>
+        <div className="inputGroup">
+          <label htmlFor="email">E-mail</label>
+          <input
+            defaultValue={user.email}
             type="text"
             {...register("email")}
             placeholder="John.Doe@gmail.com"
           />
+          {errors.email && <span>Yanlış email</span>}
         </div>
         <div className="inputGroup">
-          <label htmlFor="">Mobil nömrə</label>
+          <label>Mobil nömrə</label>
           <input
             type="text"
-            {...register("email")}
+            // {...register("phone")}
             placeholder="000 - 00 - 00"
           />
         </div>
 
         <Button img={Edit} btn={"Məlumatları yenilə"} />
       </div>
+      <ToastContainer />
     </form>
   );
 };
-{
-  /* <Input
-type={"email"}
-name={"Ad"}
-register={register}
-pattern={pattern}
-errors={errors}
-label={"Ad"}
-validation={{
-  pattern: {
-    value: /^[a-zA-Z]+$/,
-  },
-}}
-/>
-<Input
-type={"email"}
-name={"Soyad"}
-register={register}
-pattern={pattern}
-errors={errors}
-label={"Soyad"}
-validation={{
-  pattern: {
-    value: /^[a-zA-Z]+$/,
-  },
-}}
-/>
-<Input
-type={"email"}
-name={"E-mail"}
-register={register}
-pattern={pattern}
-errors={errors}
-label={"E-mail"}
-validation={{
-  pattern: {
-    value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-  },
-}}
-/>
-<Input
-type={"email"}
-name={"Mobil nömrə"}
-register={register}
-pattern={pattern}
-errors={errors}
-label={"Nomre"}
-validation={{
-  pattern: {
-    value: /994(40|5[015]|60|7[07])\d{7}/,
-  },
-}}
-/> */
-}
+
 export default UserInfo;

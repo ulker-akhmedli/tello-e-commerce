@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Products.scss";
 import Filter from "./Filter/Filter";
 import Navigation from "../../components/Navigation/Navigation";
@@ -17,7 +17,7 @@ const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(null);
-
+  const [selectedBrands, setSelectedBrands] = useState("");
   const { slug } = useParams();
   const currentPage = React.useCallback(
     Number(searchParams.get("page") || 1, [searchParams])
@@ -28,18 +28,18 @@ const Products = () => {
       category_slug: [slug],
       limit: 6,
       page: currentPage,
+      ...(selectedBrands && { query: selectedBrands }),
     },
-    [searchParams]
+    [searchParams, selectedBrands]
   );
   React.useEffect(() => {
     getProductsBySlug(setLoading, setProducts, params);
   }, [slug, params]);
-
   return (
     <div className="products container ">
       <div className="left">
         <Navigation />
-        <Filter />
+        <Filter setSelectedBrands={setSelectedBrands} />
       </div>
       <div className="mobile">
         <MobileOption />

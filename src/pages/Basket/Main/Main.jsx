@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Main.scss";
 import AZN from "../../../assets/azn.svg";
 import Delete from "../../../assets/delete.svg";

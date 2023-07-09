@@ -45,6 +45,7 @@
       }
       span {
         color: $clr-gray1;
+        text-transform: capitalize;
       }
     }
   }
@@ -95,6 +96,9 @@
       }
     }
     .content {
+      .name {
+        width: 100%;
+      }
       .cart-detail {
         display: flex;
         flex-direction: column;

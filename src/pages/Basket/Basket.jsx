@@ -13,8 +13,9 @@ const Basket = () => {
   const dispatch = useDispatch();
   const { card, loading } = useSelector((state) => state.card);
 
-  // const ClearAll = async () => {
-  //   await commerce.cart.empty();
+  // const ClearAll = () => {
+  //   commerce.cart.empty();
+  //   notifyMe();
   // };
 
   useEffect(() => {

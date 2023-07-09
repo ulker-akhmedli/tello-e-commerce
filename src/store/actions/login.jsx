@@ -20,15 +20,14 @@ export const userLogin = async ({ email, baseUrl }) => {
     return err.message;
   }
 };
-export const userRegister = async ({ firstname, lastname, email, phone }) => {
+export const userRegister = async ({ firstname, lastname, email }) => {
   const url = new URL("https://api.chec.io/v1/customers");
   let body = {
     firstname,
     lastname,
     email,
-    phone,
   };
-  console.log(body);
+  // console.log(body);
   try {
     const response = await axios.post(url, body, { headers });
     return response.data;
@@ -39,7 +38,7 @@ export const userRegister = async ({ firstname, lastname, email, phone }) => {
 };
 
 export const updateUser = async ({ firstname, lastname, email }, id) => {
-  console.log(lastname, firstname, email, id);
+  // console.log(lastname, firstname, email, id);
   try {
     const response = await commerce.customer.update(
       {

@@ -30,13 +30,12 @@ const Register = () => {
     resolver: zodResolver(schema),
   });
   console.log(phone);
-  const onSubmit = ({ firstname, lastname, email, phone }) => {
+  const onSubmit = ({ firstname, lastname, email }) => {
     if (phoneIsValid) {
       userRegister({
         firstname,
         lastname,
         email,
-        phone,
       });
       navigate("/login");
     }

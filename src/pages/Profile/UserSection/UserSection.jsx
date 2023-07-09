@@ -4,7 +4,7 @@ import Profile from "../../../assets/profile.svg";
 import LogOut from "../../../assets/logout.svg";
 import { useNavigate } from "react-router-dom";
 import { commerce } from "../../../commerce";
-import { ToastContainer, toast } from "react-toastify";
+
 
 const UserSection = () => {
   const navigate = useNavigate();
