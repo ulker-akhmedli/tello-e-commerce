@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import "./Register.scss";
 import WithSocial from "../Login/WithSocial/WithSocial";
-// import Input from "../../components/Input/Input";
 import LoginImage from "../Login/LoginImage/LoginImage";
 import Button from "../../components/Button/Button";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { userRegister } from "../../store/actions/login";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -19,6 +18,8 @@ const schema = z.object({
 });
 
 const Register = () => {
+  const [phone, setPhone] = useState("");
+
   const navigate = useNavigate();
   const {
     register,
@@ -35,8 +36,6 @@ const Register = () => {
       email,
     });
   };
-
-  const [value, setValue] = useState();
   return (
     <div className="container register">
       <div className="register-content">
@@ -51,14 +50,12 @@ const Register = () => {
               {...register("firstname")}
               placeholder="Adınızı daxil edin"
             />
-
             <label htmlFor="">Soyad</label>
             <input
               type="text"
               {...register("lastname")}
               placeholder="Soyadınızı daxil edin"
             />
-
             <label htmlFor="">E-mail</label>
             <input
               type="text"
@@ -67,14 +64,13 @@ const Register = () => {
             />
             {errors.email && <span>Yanlış email</span>}
           </div>
+
           <PhoneInput
             placeholder="00-000-0000"
-            value={value}
-            onChange={setValue}
-            name={"Mobil nömrə"}
+            value={phone}
+            onChange={setPhone}
             defaultCountry="AZ"
           />
-
           <Button btn={"Qeydiyyat"} />
         </form>
       </div>

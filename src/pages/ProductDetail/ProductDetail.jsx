@@ -11,10 +11,10 @@ import LoadingSpinner from "../../components/Loading/LoadingSpinner";
 const ProductDetail = () => {
   window.scrollTo(0, 0);
   const { id } = useParams();
-
   const [product, setProduct] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const [currentVariant, setCurrentVariant] = React.useState(null);
+
   useEffect(() => {
     getProductById(setLoading, setProduct, setCurrentVariant, id);
   }, [id]);
@@ -23,7 +23,7 @@ const ProductDetail = () => {
   }
   return (
     <div className="container">
-      <Navigation name={product?.name} id={product?.id} product={product} />
+      <Navigation id={product?.id} product={product} />
       <div className="details container ">
         <SliderSelect
           images={product?.assets}

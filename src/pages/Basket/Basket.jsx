@@ -6,6 +6,8 @@ import { getCard } from "../../store/actions/card";
 import EmptyBasket from "./EmptyBasket/EmptyBasket";
 import LoadingSpinner from "../../components/Loading/LoadingSpinner";
 import { commerce } from "../../commerce";
+import { ToastContainer, toast } from "react-toastify";
+
 const Basket = () => {
   const [card, setCards] = useState({});
   const [loading, setLoading] = useState(null);
@@ -18,6 +20,11 @@ const Basket = () => {
   if (!loading && card.total_items === 0) {
     return <EmptyBasket />;
   }
+  const notifyMe = () => {
+    toast.success("Səbətiniz təmizləndi");
+  };
+  
+
   return (
     <div className="basket">
       <h4>Səbət ( {card.total_items} məhsul)</h4>
@@ -41,15 +48,18 @@ const Basket = () => {
           })}
         </div>
         <Amount card={card} />
-        <button
-          className="empty-cart"
-          onClick={() => {
-            commerce.cart.empty().then(() => setCards({ total_items: 0 }));
-          }}
-        >
-          empty-cart
-        </button>
       </div>
+      <button
+        className="empty-cart"
+        onClick={() => {
+          commerce.cart
+            .empty()
+            .then(() => setCards({ total_items: 0 }), notifyMe());
+        }}
+      >
+        Hamısını təmizlə
+      </button>
+      <ToastContainer />
     </div>
   );
 };

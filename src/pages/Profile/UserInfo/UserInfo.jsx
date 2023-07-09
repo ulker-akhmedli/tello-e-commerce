@@ -50,14 +50,14 @@ const UserInfo = () => {
             placeholder="John.Doe@gmail.com"
           />
         </div>
-        {/* <div className="inputGroup">
+        <div className="inputGroup">
           <label htmlFor="">Mobil nömrə</label>
           <input
             type="text"
             {...register("email")}
             placeholder="000 - 00 - 00"
           />
-        </div> */}
+        </div>
 
         <Button img={Edit} btn={"Məlumatları yenilə"} />
       </div>

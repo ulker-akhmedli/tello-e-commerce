@@ -1,4 +1,5 @@
 @import "../../../scss/variables.scss";
+
 .amount {
   display: flex;
   flex-direction: column;
@@ -48,12 +49,12 @@
     }
   }
 }
-@media (max-width:576px) {
-  .amount{
+
+@media (max-width: 576px) {
+  .amount {
     width: 100%;
-    order:-1;
+    order: -1;
     margin: 0 16px;
     padding: 24px 16px;
   }
-  
 }

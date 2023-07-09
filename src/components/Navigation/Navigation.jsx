@@ -3,24 +3,35 @@ import "./Navigation.scss";
 import { useLocation, Link } from "react-router-dom";
 import Navigat from "../../assets/navigat.svg";
 
-const Navigation = () => {
+const Navigation = ({ product }) => {
   const { pathname } = useLocation();
-  // console.log(location);
 
   return (
     <div className="navigation">
       <ul>
         <li className="category">
           <Link to={"/"}>Ana səhifə</Link>
+          <img src={Navigat} alt="icon" />
         </li>
-        <img src={Navigat} alt="icon" />
-        {pathname.split("/products/").map((p) => {
-          return (
-            <li key={Math.floor(Math.random() * 100)} className="slug">
-              <Link to={`/${p}`}>{p}</Link>
-            </li>
-          );
-        })}
+
+        {product?.categories
+          ? product.categories.map((c) => {
+              return (
+                <div key={c.id}>
+                  <li className="slug">
+                    <Link to={`/products/${c.slug}`}>{c.name}</Link>
+                    <img src={Navigat} alt="icon" />
+                  </li>
+                </div>
+              );
+            })
+          : pathname.split("/products/").map((p) => {
+              return (
+                <li key={Math.floor(Math.random() * 100)} className="slug">
+                  <Link to={`/products/${p}`}>{p}</Link>
+                </li>
+              );
+            })}
       </ul>
     </div>
   );

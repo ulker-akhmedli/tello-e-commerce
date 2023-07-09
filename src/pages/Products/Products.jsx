@@ -20,6 +20,7 @@ const Products = () => {
   const currentPage = React.useCallback(
     Number(searchParams.get("page") || 1, [searchParams])
   );
+
   const params = React.useCallback(
     {
       category_slug: [slug],

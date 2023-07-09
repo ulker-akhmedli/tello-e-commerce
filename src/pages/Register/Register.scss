@@ -1,7 +1,6 @@
 @import "../../scss/variables.scss";
 .register {
   display: flex;
-  // align-items: center;
   justify-content: space-between;
   .register-content {
     width: 50%;
@@ -15,7 +14,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 24px;
+      gap: 25px;
       .PhoneInput {
         width: 89%;
         display: flex;

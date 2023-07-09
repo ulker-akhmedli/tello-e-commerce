@@ -17,10 +17,10 @@ const Main = ({
   const [quantity, setQuantity] = useState(1);
 
   const notifyMe = () => {
-    toast.success("Added to your cart!");
-    // toast.error("Error!", {
-    //   position: "top-right",
-    // });
+    toast.success("Səbətinizə uğurla əlavə edildi");
+  };
+  const notifyMeError = () => {
+    toast.warning("Seçilən sayda məhsul mövcud deyil!");
   };
   const color = variant_groups?.find((el) => el.name == "color");
   const storage = variant_groups?.find((el) => el.name == "storage");
@@ -40,6 +40,8 @@ const Main = ({
   const handleIncrement = () => {
     if (quantity < 5) {
       setQuantity((prev) => prev + 1);
+    } else {
+      notifyMeError();
     }
   };
   async function addToBasket() {
@@ -54,6 +56,7 @@ const Main = ({
         }
       });
     }
+
     commerce.cart.add(id, quantity, variant).then((response) => {
       notifyMe();
     });
@@ -119,7 +122,7 @@ const Main = ({
         <span>{quantity}</span>
         <button onClick={handleIncrement}>+</button>
       </div>
-      {/* <Button btn={"Səbətə at"} /> */}
+
       <button className="addCart" onClick={addToBasket}>
         Səbətə at
         <img src={Cart} alt="basket" />

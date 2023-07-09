@@ -26,12 +26,13 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
-          {/* <Route path="/search-results/:query" element={<SearchProducts />} /> */}
+          <Route path="/search-results/:query" element={<SearchProducts />} />
           <Route path="/basket" element={<Basket />} />
           <Route path="/details/:id" element={<ProductDetail />} />
           <Route path="/error" element={<Error />} />
           <Route path="/create-token/:token" element={<ExchangeToken />} />
           <Route path="/user-profile/:tab" element={<Profile />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </div>
       <Footer />

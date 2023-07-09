@@ -1,25 +1,51 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { getCard,removeCard,updateCard,getCard } from "../actions/card";
+import { getCard, removeCard, updateCard } from "../actions/card";
 
-const initialState = {
-  // cart: [],
-  // loading: false,
-  // errors: null,
+const initState = {
+  cart: [],
+  loading: false,
+  errors: null,
 };
 
-export const cartReducer = createSlice({
-  name: "counter",
-  initialState,
-  reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-  },
+const getCartSlice = createSlice({
+  name: "bestSellers",
+  initialState: initState,
+  // extraReducers: {
+  //   [getCard.pending]: (state) => {
+  //     state.loading = true;
+  //   },
+  //   [getCard.rejected]: (state, payload) => {
+  //     state.loading = false;
+  //     state.errors = payload;
+  //   },
+  //   [getCard.fulfilled]: (state, { payload }) => {
+  //     state.loading = false;
+  //     state.cart = payload;
+  //   },
+
+  //   [removeCard.pending]: (state) => {
+  //     state.loading = true;
+  //   },
+  //   [removeCard.rejected]: (state, { payload }) => {
+  //     state.loading = false;
+  //     state.error = payload;
+  //   },
+  //   [removeCard.fulfilled]: (state, { payload }) => {
+  //     state.cart = payload;
+  //     state.loading = false;
+  //   },
+  //   [updateCard.pending]: (state) => {
+  //     state.loading = true;
+  //   },
+  //   [updateCard.rejected]: (state, { payload }) => {
+  //     state.loading = false;
+  //     state.error = payload;
+  //   },
+  //   [updateCard.fulfilled]: (state, { payload }) => {
+  //     state.cart = payload;
+  //     state.loading = false;
+  //   },
+  // },
 });
 
-export const { increment, decrement } = cartReducer.actions;
-
-export default cartReducer.reducer;
+export default getCartSlice.reducer;

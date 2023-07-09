@@ -4,7 +4,7 @@ export const getCard = async ({ setLoading, setCards }) => {
   try {
     setLoading(true);
     const response = await commerce.cart.retrieve();
-    console.log(response);
+
     setCards(response);
     setLoading(false);
     return response;

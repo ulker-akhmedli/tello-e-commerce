@@ -18,7 +18,6 @@ const Header = () => {
   const [loading, setLoading] = useState(null);
   const { slug } = useParams();
   const isLogin = commerce.customer.isLoggedIn();
-  // console.log(isLogin);
   const [user, setUser] = React.useState({});
   const params = {
     depth: "2",
@@ -69,9 +68,6 @@ const Header = () => {
         <Search />
 
         <div className="shopping">
-          {/* <Link to={"/login"}>
-            {user.firstname || <img src={login} alt="login" />}
-          </Link> */}
           {user.firstname ? (
             <Link to={"/user-profile/user-info"} className="user">
               {user && <h3 className="user-Name">{user.firstname}</h3>}

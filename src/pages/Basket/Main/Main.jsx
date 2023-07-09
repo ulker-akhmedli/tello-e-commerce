@@ -4,6 +4,7 @@ import AZN from "../../../assets/azn.svg";
 import Delete from "../../../assets/delete.svg";
 import { useNavigate } from "react-router-dom";
 import { updateCard, removeCard } from "../../../store/actions/card";
+import { ToastContainer, toast } from "react-toastify";
 
 const Main = ({
   name,
@@ -30,14 +31,19 @@ const Main = ({
       removeCard(setLoading, setCards, item_id);
     }
   };
+  const notifyMeError = () => {
+    toast.warning("Seçilən sayda məhsul mövcud deyil!");
+  };
 
   const handleIncrement = () => {
-    if (productQuantity < 10) {
+    if (productQuantity < 5) {
       setQuantity((prev) => prev + 1);
       updateCard(setLoading, setCards, {
         id: item_id,
         quantity: productQuantity + 1,
       });
+    } else {
+      notifyMeError();
     }
   };
   const deleteFromCard = () => {
@@ -46,6 +52,7 @@ const Main = ({
   const goToProduct = () => {
     navigate(`/details/${product_id}`);
   };
+
   return (
     <div className="mainCart">
       <div onClick={goToProduct} className="cart-photo">
@@ -77,6 +84,7 @@ const Main = ({
         src={Delete}
         alt="delete"
       />
+      <ToastContainer />
     </div>
   );
 };

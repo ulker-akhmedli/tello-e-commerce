@@ -32,6 +32,7 @@ export const getProductsBySlug = async (setLoading, setProducts, params) => {
     setLoading(true);
     const { data: response } = await axios.get(url, { headers });
     setProducts(response);
+
     setLoading(false);
     return response.data;
   } catch (err) {

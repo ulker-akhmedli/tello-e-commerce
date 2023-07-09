@@ -4,6 +4,7 @@ import lupa from "../../../assets/search.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import { commerce } from "../../../commerce";
 import SearchResult from "./SearchResult/SearchResult";
+import { DebounceInput } from "react-debounce-input";
 
 const Search = () => {
   const [inputValue, setInputValue] = useState("");
@@ -15,7 +16,7 @@ const Search = () => {
   const [searchs, setSearchs] = useState(
     recentSearchs ? JSON.parse(recentSearchs) : []
   );
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     localStorage.setItem("recentSearchs", JSON.stringify(searchs));
@@ -63,7 +64,7 @@ const Search = () => {
     setInputValue("");
     setResultDropdown(false);
     inputValue.trim("").length > 0 && setSearchs([...searchs, inputValue]);
-    // navigate(`/search-results/${inputValue}`);
+    navigate(`/search-results/${inputValue}`);
   };
   const handleSearchClear = () => {
     setSearchs([]);
@@ -73,11 +74,13 @@ const Search = () => {
   return (
     <form onSubmit={handleSubmit}>
       <img className="searchIcon" src={lupa} alt="search" />
-      <input
+      <DebounceInput
         type="text"
         placeholder="Axtarış..."
         value={inputValue}
         onChange={handleInputChange}
+        minLength={2}
+        debounceTimeout={500}
         onClick={handleInputClick}
       />
       {dropdownVisible && (
