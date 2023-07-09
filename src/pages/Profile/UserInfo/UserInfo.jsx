@@ -29,7 +29,7 @@ const UserInfo = () => {
   const onSubmit = (data) => {
     updateUser(data, user.id);
   };
-
+  console.log(user);
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="userInfo">
       <h1>Şəxsi məlumatlar</h1>

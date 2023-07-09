@@ -12,12 +12,8 @@ import Box from "../../assets/box.png";
 import Cardpos from "../../assets/card-pos.png";
 import Guarantee from "../../assets/guarantee.png";
 import Accessories from "./Product/Accessories";
-// import { commerce } from "../../commerce";
 
 const Home = () => {
-  // async function fetchProduct() {
-  //   commerce.products.list().then((product) => console.log(product));
-  // }
   return (
     <div className="home">
       <Carousel />
@@ -37,7 +33,6 @@ const Home = () => {
         </div>
       </div>
       <Brand />
-      {/* <button onClick={fetchProduct}>get product </button> */}
     </div>
   );
 };

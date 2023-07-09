@@ -1,14 +1,15 @@
 import React from "react";
 import More from "../../assets/more.svg";
-import "./Caption.scss"
-const Caption = ({title}) => {
+import { Link } from "react-router-dom";
+import "./Caption.scss";
+const Caption = ({ title }) => {
   return (
     <div className="caption">
       <div className="best-seller">
         <h3>{title}</h3>
       </div>
       <div className="more">
-        <h4>Hamısına bax</h4>
+        <Link to={"products/aksesuarlar"}>Hamısına bax</Link>
         <img src={More} alt="more" />
       </div>
     </div>

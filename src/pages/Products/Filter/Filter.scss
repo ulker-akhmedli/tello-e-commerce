@@ -55,22 +55,7 @@
 }
 @media (max-width: 576px) {
   .filter {
-    // display: none;
-    .filter-title {
-      h3 {
-      }
-      img {
-      }
-    }
-    .options {
-      li {
-        input {
-          &:before {
-          }
-        }
-        label {
-        }
-      }
-    }
+    width: 65%;
+    padding: 0;
   }
 }

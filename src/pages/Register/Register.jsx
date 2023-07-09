@@ -5,7 +5,7 @@ import LoginImage from "../Login/LoginImage/LoginImage";
 import Button from "../../components/Button/Button";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { userRegister } from "../../store/actions/login";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -19,6 +19,7 @@ const schema = z.object({
 
 const Register = () => {
   const [phone, setPhone] = useState("");
+  const phoneIsValid = phone?.length === 13;
 
   const navigate = useNavigate();
   const {
@@ -28,13 +29,17 @@ const Register = () => {
   } = useForm({
     resolver: zodResolver(schema),
   });
-  const onSubmit = ({ firstname, lastname, email }) => {
-    navigate("/login");
-    userRegister({
-      firstname,
-      lastname,
-      email,
-    });
+  console.log(phone);
+  const onSubmit = ({ firstname, lastname, email, phone }) => {
+    if (phoneIsValid) {
+      userRegister({
+        firstname,
+        lastname,
+        email,
+        phone,
+      });
+      navigate("/login");
+    }
   };
   return (
     <div className="container register">
@@ -64,7 +69,6 @@ const Register = () => {
             />
             {errors.email && <span>Yanlış email</span>}
           </div>
-
           <PhoneInput
             placeholder="00-000-0000"
             value={phone}

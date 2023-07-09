@@ -36,6 +36,9 @@ const ProductDetail = () => {
           variant_groups={product?.variant_groups}
           currentVariant={currentVariant}
           setCurrentVariant={setCurrentVariant}
+          available={
+            product?.inventory?.managed ? product?.inventory?.available : 10
+          }
         />
       </div>
       <Specifications />

@@ -20,12 +20,13 @@ export const userLogin = async ({ email, baseUrl }) => {
     return err.message;
   }
 };
-export const userRegister = async ({ firstname, lastname, email }) => {
+export const userRegister = async ({ firstname, lastname, email, phone }) => {
   const url = new URL("https://api.chec.io/v1/customers");
   let body = {
     firstname,
     lastname,
     email,
+    phone,
   };
   console.log(body);
   try {

@@ -1,5 +1,4 @@
 @import "../../../scss/variables.scss";
-
 .mobileNav {
   background-color: #fff;
   left: -100%;
@@ -9,6 +8,25 @@
   position: fixed;
   z-index: 1000;
   transition: all 0.3s ease;
+  .dropdown {
+    padding: 16px;
+    width: 100%;
+    ul {
+      gap: 15px;
+      li {
+        a {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+  .openDropdown {
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    &.opened {
+      transform: rotate(90deg);
+    }
+  }
   &.opened {
     left: 0;
   }
@@ -22,19 +40,27 @@
     display: flex;
     gap: 21px;
     flex-direction: column;
-    padding: 16px 0 96px 16px;
+    // padding: 26px 0 96px 16px;
+    padding: 16px;
+
     li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
       a {
+        color: #303030;
+        text-align: center;
       }
     }
   }
   .login-buttons {
     background-color: #faf9f9;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 16px;
+    margin: 40px 20px;
     .button {
       background: #ffffff;
       border: 1px solid $clr-main;

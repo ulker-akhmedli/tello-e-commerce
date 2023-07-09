@@ -5,6 +5,7 @@ import Delete from "../../../assets/delete.svg";
 import { useNavigate } from "react-router-dom";
 import { updateCard, removeCard } from "../../../store/actions/card";
 import { ToastContainer, toast } from "react-toastify";
+import {useDispatch } from "react-redux";
 
 const Main = ({
   name,
@@ -13,22 +14,18 @@ const Main = ({
   quantity,
   item_id,
   product_id,
-  setLoading,
-  setCards,
   options,
 }) => {
-  const colorName = options?.find((el) => (el.group_name = "color"));
+  const dispatch = useDispatch();
+  const colorName = options?.find((el) => el.group_name == "color");
   const [productQuantity, setQuantity] = useState(quantity);
   const navigate = useNavigate();
   const handleDecrement = () => {
     if (productQuantity > 1) {
       setQuantity((prev) => prev - 1);
-      updateCard(setLoading, setCards, {
-        id: item_id,
-        quantity: productQuantity - 1,
-      });
+      dispatch(updateCard({ id: item_id, quantity: productQuantity - 1 }));
     } else {
-      removeCard(setLoading, setCards, item_id);
+      dispatch(removeCard(item_id));
     }
   };
   const notifyMeError = () => {
@@ -38,16 +35,13 @@ const Main = ({
   const handleIncrement = () => {
     if (productQuantity < 5) {
       setQuantity((prev) => prev + 1);
-      updateCard(setLoading, setCards, {
-        id: item_id,
-        quantity: productQuantity + 1,
-      });
+      dispatch(updateCard({ id: item_id, quantity: productQuantity + 1 }));
     } else {
       notifyMeError();
     }
   };
   const deleteFromCard = () => {
-    removeCard(setLoading, setCards, item_id);
+    dispatch(removeCard(item_id));
   };
   const goToProduct = () => {
     navigate(`/details/${product_id}`);

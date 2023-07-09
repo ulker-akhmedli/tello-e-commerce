@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     gap: 11px;
-    .slug{
+    .slug {
       text-transform: capitalize;
     }
     li {
@@ -17,12 +17,13 @@
         font-size: 14px;
         line-height: 20px;
         color: $clr-gray2;
+        white-space: nowrap;
       }
     }
   }
 }
 @media (max-width: 576px) {
-  .navigation{
+  .navigation {
     padding-left: 0;
   }
 }

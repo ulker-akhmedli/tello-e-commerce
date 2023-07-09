@@ -13,12 +13,9 @@ const Main = ({
   variant_groups,
   currentVariant,
   setCurrentVariant,
+  available,
 }) => {
   const [quantity, setQuantity] = useState(1);
-
-  const notifyMe = () => {
-    toast.success("Səbətinizə uğurla əlavə edildi");
-  };
   const notifyMeError = () => {
     toast.warning("Seçilən sayda məhsul mövcud deyil!");
   };
@@ -38,7 +35,7 @@ const Main = ({
     }
   };
   const handleIncrement = () => {
-    if (quantity < 5) {
+    if (quantity < available) {
       setQuantity((prev) => prev + 1);
     } else {
       notifyMeError();
@@ -56,9 +53,10 @@ const Main = ({
         }
       });
     }
-
-    commerce.cart.add(id, quantity, variant).then((response) => {
-      notifyMe();
+    toast.promise(commerce.cart.add(id, quantity, variant), {
+      pending: "Səbətə əlavə edilir.",
+      success: "Səbətinizə uğurla əlavə edildi",
+      error: "Səbətə əlavə olunmadı.",
     });
   }
   return (
@@ -118,9 +116,20 @@ const Main = ({
       )}
 
       <div className="numberCarts">
-        <button onClick={handleDecrement}>-</button>
+        <button
+          disabled={quantity == 1 ? true : false}
+          onClick={handleDecrement}
+        >
+          -
+        </button>
         <span>{quantity}</span>
-        <button onClick={handleIncrement}>+</button>
+
+        <button
+          // disabled={quantity == 10 ? true : false}
+          onClick={handleIncrement}
+        >
+          +
+        </button>
       </div>
 
       <button className="addCart" onClick={addToBasket}>

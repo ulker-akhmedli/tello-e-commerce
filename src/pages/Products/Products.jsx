@@ -11,6 +11,8 @@ import Skeleton from "../../components/Skeleton/Card";
 import { getProductsBySlug } from "../../store/actions/product";
 
 const Products = () => {
+  // const query = useParams().query;
+  // console.log(query);
   window.scrollTo(0, 0);
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = React.useState([]);

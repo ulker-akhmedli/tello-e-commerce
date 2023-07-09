@@ -5,15 +5,22 @@ import Main from "./Main/Main";
 import { getCard } from "../../store/actions/card";
 import EmptyBasket from "./EmptyBasket/EmptyBasket";
 import LoadingSpinner from "../../components/Loading/LoadingSpinner";
-import { commerce } from "../../commerce";
+// import { commerce } from "../../commerce";
 import { ToastContainer, toast } from "react-toastify";
+import { useSelector, useDispatch } from "react-redux";
 
 const Basket = () => {
-  const [card, setCards] = useState({});
-  const [loading, setLoading] = useState(null);
+  const dispatch = useDispatch();
+  const { card, loading } = useSelector((state) => state.card);
+
+  // const ClearAll = async () => {
+  //   await commerce.cart.empty();
+  // };
+
   useEffect(() => {
-    getCard({ setLoading, setCards });
+    dispatch(getCard());
   }, []);
+
   if (loading) {
     return <LoadingSpinner />;
   }
@@ -23,8 +30,6 @@ const Basket = () => {
   const notifyMe = () => {
     toast.success("Səbətiniz təmizləndi");
   };
-  
-
   return (
     <div className="basket">
       <h4>Səbət ( {card.total_items} məhsul)</h4>
@@ -41,24 +46,16 @@ const Basket = () => {
                 image={el.image.url}
                 quantity={el.quantity}
                 options={el?.selected_options}
-                setLoading={setLoading}
-                setCards={setCards}
               />
             );
           })}
         </div>
         <Amount card={card} />
       </div>
-      <button
-        className="empty-cart"
-        onClick={() => {
-          commerce.cart
-            .empty()
-            .then(() => setCards({ total_items: 0 }), notifyMe());
-        }}
-      >
+
+      {/* <button className="empty-cart" onClick={ClearAll}>
         Hamısını təmizlə
-      </button>
+      </button> */}
       <ToastContainer />
     </div>
   );
