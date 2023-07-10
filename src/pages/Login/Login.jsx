@@ -8,9 +8,11 @@ import LoginMessage from "./LoginMessage/LoginMessage.jsx";
 import { userLogin } from "../../store/actions/login.jsx";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+
 const schema = z.object({
   email: z.string().email(),
 });
+
 const Login = () => {
   const [loginMessage, setLoginMessage] = React.useState(false);
   const baseUrl = window.location.origin;
@@ -39,18 +41,6 @@ const Login = () => {
             <WithSocial />
             <span className="or">və ya</span>
             <form onSubmit={handleSubmit(onSubmit)}>
-              {/* <Input
-                placeholder={"nümunə@gmail.com"}
-                name={"E-mail"}
-                register={register}
-                errors={errors}
-                label={"e-mail"}
-                validation={{
-                  pattern: {
-                    value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-                  },
-                }}
-              /> */}
               <div className="inputGroup">
                 <label htmlFor="">E-mail</label>
                 <input
@@ -60,7 +50,6 @@ const Login = () => {
                 />
                 {errors.email && <span>Yanlış Ad</span>}
               </div>
-
               <Button btn={"Daxil ol"} />
             </form>
           </div>

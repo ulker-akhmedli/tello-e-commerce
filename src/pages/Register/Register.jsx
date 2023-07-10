@@ -29,7 +29,7 @@ const Register = () => {
   } = useForm({
     resolver: zodResolver(schema),
   });
-  console.log(phone);
+
   const onSubmit = ({ firstname, lastname, email }) => {
     if (phoneIsValid) {
       userRegister({

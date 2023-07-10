@@ -3,11 +3,17 @@ import Swap from "../../../assets/swap.svg";
 import CloseIcon from "../../../assets/closeNavbar.svg";
 import FilterIcon from "../../../assets/filter.svg";
 import "./MobileOption.scss";
-import MobileInfo from "./MobileInfo/MobileInfo";
 import Filter from "../Filter/Filter";
 import Info from "../Info/Info";
 
-const MobileOption = () => {
+const MobileOption = ({
+  setSelectedBrands,
+  loading,
+  products,
+  setSort,
+  sort,
+  optionsOrder,
+}) => {
   const [orders, setOrders] = useState(false);
   const [filters, setFilters] = useState(false);
   const handleOrders = () => {
@@ -29,7 +35,13 @@ const MobileOption = () => {
             <span>Sıralama</span>
           </div>
           <div className="actions">
-            <MobileInfo />
+            <Info
+              loading={loading}
+              products={products}
+              setSort={setSort}
+              sort={sort}
+              options={optionsOrder}
+            />
           </div>
           <button onClick={handleOrders} className="showResults">
             Sıralanmış məhsulları göstər
@@ -47,7 +59,7 @@ const MobileOption = () => {
             <img onClick={filtersToggle} src={CloseIcon} alt="close" />
           </div>
           <div className="actions">
-            <Filter />
+            <Filter setSelectedBrands={setSelectedBrands} />
           </div>
           <button onClick={filtersToggle} className="showResults">
             Filterlənmiş məhsulları göstər

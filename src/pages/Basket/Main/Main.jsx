@@ -5,7 +5,7 @@ import Delete from "../../../assets/delete.svg";
 import { useNavigate } from "react-router-dom";
 import { updateCard, removeCard } from "../../../store/actions/card";
 import { ToastContainer, toast } from "react-toastify";
-import {useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Main = ({
   name,
@@ -33,7 +33,7 @@ const Main = ({
   };
 
   const handleIncrement = () => {
-    if (productQuantity < 5) {
+    if (productQuantity < 10) {
       setQuantity((prev) => prev + 1);
       dispatch(updateCard({ id: item_id, quantity: productQuantity + 1 }));
     } else {

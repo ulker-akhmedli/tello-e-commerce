@@ -52,16 +52,6 @@ const SearchProducts = () => {
             ? "Axtarılır..."
             : `${results.meta?.pagination.total} məhsul tapıldı`}
         </div>
-        <div className="sort" onClick={setDropdownOpen}>
-          <span>Ən yenilər</span>
-          <img src={Sort} alt="icon" />
-          {sortDropDown && (
-            <div className="sort-dropdown">
-              <div className="sort-option">Azdan çoxa</div>
-              <div className="sort-option">Çoxdan aza</div>
-            </div>
-          )}
-        </div>
       </div>
       <div className="results">
         {loading && !results.length > 0
