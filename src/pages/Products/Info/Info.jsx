@@ -24,13 +24,11 @@ const Info = ({ loading, products, options, sort, setSort }) => {
           ? "Axtarılır..."
           : `${products.meta?.pagination.total} məhsul tapıldı`}
       </div>
-      <div className="sort" onClick={setDropdownOpen}>
+      <div className="sort mobile" onClick={setDropdownOpen}>
         <span>{sort.label}</span>
         <img src={Sort} alt="icon" />
         {sortDropDown && (
           <div className="sort-dropdown">
-            {/* <div className="sort-option">Azdan çoxa</div> */}
-            {/* <div className="sort-option">Çoxdan aza</div> */}
             {options.map((el) => {
               if (!el.active) {
                 return (

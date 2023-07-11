@@ -5,6 +5,7 @@ import FilterIcon from "../../../assets/filter.svg";
 import "./MobileOption.scss";
 import Filter from "../Filter/Filter";
 import Info from "../Info/Info";
+import { optionsOrder } from "../data";
 
 const MobileOption = ({
   setSelectedBrands,
@@ -12,7 +13,7 @@ const MobileOption = ({
   products,
   setSort,
   sort,
-  optionsOrder,
+  options,
 }) => {
   const [orders, setOrders] = useState(false);
   const [filters, setFilters] = useState(false);

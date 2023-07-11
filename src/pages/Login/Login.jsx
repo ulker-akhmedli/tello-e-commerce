@@ -8,12 +8,15 @@ import LoginMessage from "./LoginMessage/LoginMessage.jsx";
 import { userLogin } from "../../store/actions/login.jsx";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-
+import { commerce } from "../../commerce.js";
+import { useNavigate } from "react-router-dom";
 const schema = z.object({
   email: z.string().email(),
 });
 
 const Login = () => {
+  const navigate = useNavigate();
+  const isLogin = commerce.customer.isLoggedIn();
   const [loginMessage, setLoginMessage] = React.useState(false);
   const baseUrl = window.location.origin;
   const {
@@ -29,6 +32,10 @@ const Login = () => {
     userLogin({ email, baseUrl });
     setLoginMessage(true);
   };
+
+  React.useEffect(() => {
+    isLogin && navigate("/");
+  }, [isLogin]);
 
   return (
     <div>

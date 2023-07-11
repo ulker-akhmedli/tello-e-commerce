@@ -53,6 +53,12 @@
         gap: 40px;
         .mobile {
           display: block;
+          display: flex;
+          gap: 35px;
+          // .sort-dropdown{
+          //   width: 156px;
+
+          // }
         }
       }
 

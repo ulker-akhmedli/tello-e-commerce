@@ -1,8 +1,7 @@
 import React from "react";
 import "./Amount.scss";
 import AZN from "../../../assets/azn.svg";
-import { commerce } from "../../../commerce";
-import Button from "../../../components/Button/Button";
+
 const Amount = ({ card }) => {
   return (
     <div className="amount ">

@@ -1,7 +1,6 @@
 import React from "react";
 import "./Header.scss";
 import login from "../../assets/login.svg";
-import like from "../../assets/like.svg";
 import basket from "../../assets/basket.svg";
 import Nav from "./Nav/Nav";
 import { useState, useEffect } from "react";
@@ -28,13 +27,12 @@ const Header = () => {
   }, [dispatch]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(null);
-  const isLogin = commerce.customer.isLoggedIn();
   const [user, setUser] = React.useState({});
+  const isLogin = commerce.customer.isLoggedIn();
 
   React.useEffect(() => {
     isLogin && commerce.customer.about().then((customer) => setUser(customer));
   }, [isLogin]);
-
   React.useEffect(() => {
     getCategoriesName(setLoading, setCategories, params);
   }, [params]);

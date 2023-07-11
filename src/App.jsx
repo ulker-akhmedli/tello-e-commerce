@@ -13,10 +13,8 @@ import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Error from "./pages/Error/Error";
 import ExchangeToken from "./pages/ExchangeToken/ExchangeToken";
 import SearchProducts from "./pages/SearchProducts/SearchProducts";
-// import { commerce } from "./commerce";
-const App = () => {
-  // const isLogin = commerce.customer.isLoggedIn();
 
+const App = () => {
   return (
     <div>
       <Header />
@@ -25,11 +23,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/products/:slug" element={<Products />} />
           <Route path="/questions" element={<Questions />} />
-          <Route
-            path="/login"
-            element={<Login />}
-            // Component={isLogin ? Profile : Login}
-          />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/search-results/:query" element={<SearchProducts />} />

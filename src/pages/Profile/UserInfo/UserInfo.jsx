@@ -5,7 +5,6 @@ import Button from "../../../components/Button/Button";
 import Edit from "../../../assets/edit.svg";
 import { useForm } from "react-hook-form";
 import { updateUser } from "../../../store/actions/login";
-// import PhoneInput from "react-phone-number-input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { commerce } from "../../../commerce";
@@ -15,8 +14,11 @@ const schema = z.object({
   firstname: z.string().min(3),
   lastname: z.string().min(4),
   email: z.string().email(),
+  phone: z.string(),
 });
 const UserInfo = () => {
+  const isLogin = commerce.customer.isLoggedIn();
+
   const {
     register,
     handleSubmit,
@@ -25,8 +27,8 @@ const UserInfo = () => {
   } = useForm({ resolver: zodResolver(schema) });
   const [user, setUser] = React.useState({});
   React.useEffect(() => {
-    commerce.customer.about().then((customer) => setUser(customer));
-  }, []);
+    isLogin && commerce.customer.about().then((customer) => setUser(customer));
+  }, [isLogin]);
   const notifyMe = () => {
     toast.success("Məlumat dəyişdirildi");
   };
@@ -71,8 +73,9 @@ const UserInfo = () => {
         <div className="inputGroup">
           <label>Mobil nömrə</label>
           <input
+            defaultValue={user.phone}
             type="text"
-            // {...register("phone")}
+            {...register("phone")}
             placeholder="000 - 00 - 00"
           />
         </div>

@@ -5,11 +5,11 @@ import Card from "../../components/Card/Card";
 import Pagination from "../Products/Pagination/Pagination";
 import { commerce } from "../../commerce";
 import { useParams, useSearchParams } from "react-router-dom";
-import Sort from "../../assets/sort.svg";
+
 
 const SearchProducts = () => {
   const query = useParams().query;
-  // console.log(query);
+
   const [searchParams, setSearchParams] = useSearchParams();
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);

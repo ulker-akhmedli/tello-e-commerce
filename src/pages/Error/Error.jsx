@@ -6,9 +6,7 @@ import Error404 from "../../assets/404.png";
 
 const Error = () => {
   const navigate = useNavigate();
-  const refreshPage = () => {
-    window.location.reload();
-  };
+
   const navigateHome = () => {
     navigate("/");
   };
@@ -17,7 +15,7 @@ const Error = () => {
       <div className="error-message">
         <h2>Oops!</h2>
         <h4>Something went wrong...</h4>
-        {/* <button onClick={refreshPage}>Refresh Page</button> */}
+
         <button onClick={navigateHome}>Go to Home Page</button>
       </div>
       <div className="errorImg">

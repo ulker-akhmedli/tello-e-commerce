@@ -125,7 +125,6 @@ const Main = ({
         <span>{quantity}</span>
 
         <button
-          // disabled={quantity == 10 ? true : false}
           onClick={handleIncrement}
         >
           +
